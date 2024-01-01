@@ -3,3 +3,7 @@
 //
 
 #include "ClientManager.h"
+
+std::string ClientManager::msg() {
+    return "";
+}
