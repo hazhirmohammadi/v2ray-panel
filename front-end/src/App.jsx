@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {Style} from "./Style.js";
+import {Header} from "./components";
+import React, {useState} from "react";
+import Modal from "./components/Modal.jsx";
+import useModalStore from "./Store.js";
+import axios from "axios";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+   const {isOpen, openModal, closeModal} = useModalStore();
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+
+
+   return (
+       <>
+          <main className={`${Style.paddingX} ${Style.maximum} pt-4 h-screen`}>
+             <div className="flex flex-col">
+                <Header/>
+             </div>
+
+             <div>
+                <div>
+                   <button onClick={openModal}>Open Modal</button>
+                   <Modal isOpen={isOpen} onClose={closeModal}>
+                      <h2>Modal Content</h2>
+                      <p>This is the content of the modal.</p>
+                   </Modal>
+                </div>
+             </div>
+
+          </main>
+       </>
+   )
 }
 
-export default App
+export default App;
