@@ -5,10 +5,19 @@ set(CMAKE_CXX_STANDARD 17)
 #set(ROOT_ROOT ../../lib/boost)
 #add_subdirectory(../../lib/boost build)
 #add_executable(backend main.cpp)
-find_package(Boost 1.66.0 COMPONENTS regex) # Specify the Boost components you need
+find_package(Boost 1.55.0 COMPONENTS system) # Specify the Boost components you need
 include_directories(${Boost_INCLUDE_DIRS})
 add_executable(backend ${SOURCE_FILES} main.cpp)
 target_link_libraries(backend ${Boost_LIBRARIES})
+
+find_package(asio 1.25.0 REQUIRED)
+
+target_link_libraries(backend
+        INTERFACE
+        asio::asio
+        )
+
+#add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
 #file(GLOB SOURCES "../../lib/boost/*.hpp")
 #add_executable(BOOST ${SOURCES})
 #add_library(../../lib/SQLiteCpp-master/src)

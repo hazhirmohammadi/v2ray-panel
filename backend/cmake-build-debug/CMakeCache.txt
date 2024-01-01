@@ -419,6 +419,9 @@ SQLiteCpp_LIB_DEPENDS:STATIC=general;SQLite::SQLite3;
 //Value Computed by CMake
 SQLiteCpp_SOURCE_DIR:STATIC=G:/c++/v2ray panel/backend
 
+//The directory containing a CMake configuration file for asio.
+asio_DIR:PATH=asio_DIR-NOTFOUND
+
 //Value Computed by CMake
 backend_BINARY_DIR:STATIC=G:/c++/v2ray panel/backend/cmake-build-debug
 
@@ -646,7 +649,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[C:/Program Files/boost/boost_1_66_0
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //Components requested for this build tree.
-_Boost_COMPONENTS_SEARCHED:INTERNAL=regex
+_Boost_COMPONENTS_SEARCHED:INTERNAL=regex;system
 //Last used Boost_INCLUDE_DIR value.
 _Boost_INCLUDE_DIR_LAST:INTERNAL=C:/Program Files/boost/boost_1_66_0
 //Last used Boost_NAMESPACE value.
