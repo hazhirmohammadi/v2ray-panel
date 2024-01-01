@@ -5,6 +5,7 @@
 #ifndef BACKEND_DB_H
 #define BACKEND_DB_H
 #include "iostream"
+#include "../../../lib/SQLiteCpp-master/sqlite3/sqlite3.h"
 
 class DB {
     static int callback(void* NotUsed, int argc, char** argv, char** azColName) {
@@ -13,7 +14,7 @@ class DB {
         }
         return 0;
     }
-
+    std::string query (std::string);
 };
 
 
