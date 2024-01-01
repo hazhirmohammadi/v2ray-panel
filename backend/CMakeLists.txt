@@ -10,12 +10,12 @@ include_directories(${Boost_INCLUDE_DIRS})
 add_executable(backend ${SOURCE_FILES} main.cpp)
 target_link_libraries(backend ${Boost_LIBRARIES})
 
-find_package(asio 1.25.0 REQUIRED)
+include(FetchContent)
+FetchContent_Declare(asiocmake GIT_REPOSITORY "https://github.com/OlivierLDff/asio.cmake" GIT_TAG "main")
+FetchContent_MakeAvailable(asiocmake)
 
-target_link_libraries(backend
-        INTERFACE
-        asio::asio
-        )
+# Link your target with the ASIO library
+target_link_libraries(backend PRIVATE asio::asio)
 
 #add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
 #file(GLOB SOURCES "../../lib/boost/*.hpp")

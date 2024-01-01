@@ -128,6 +128,19 @@ backend/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/build
 .PHONY : backend/fast
 
+#=============================================================================
+# Target rules for targets named asio
+
+# Build rule for target.
+asio: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 asio
+.PHONY : asio
+
+# fast build rule for target.
+asio/fast:
+	$(MAKE) $(MAKESILENT) -f _deps\asiocmake-build\CMakeFiles\asio.dir\build.make _deps/asiocmake-build/CMakeFiles/asio.dir/build
+.PHONY : asio/fast
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -160,6 +173,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... asio
 	@echo ... backend
 	@echo ... main.obj
 	@echo ... main.i

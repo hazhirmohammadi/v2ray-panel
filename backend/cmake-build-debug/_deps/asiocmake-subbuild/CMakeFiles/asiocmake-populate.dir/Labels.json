@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/CMakeFiles/asiocmake-populate"
+		},
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/CMakeFiles/asiocmake-populate.rule"
+		},
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/CMakeFiles/asiocmake-populate-complete.rule"
+		},
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/asiocmake-populate-prefix/src/asiocmake-populate-stamp/asiocmake-populate-build.rule"
+		},
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/asiocmake-populate-prefix/src/asiocmake-populate-stamp/asiocmake-populate-configure.rule"
+		},
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/asiocmake-populate-prefix/src/asiocmake-populate-stamp/asiocmake-populate-download.rule"
+		},
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/asiocmake-populate-prefix/src/asiocmake-populate-stamp/asiocmake-populate-install.rule"
+		},
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/asiocmake-populate-prefix/src/asiocmake-populate-stamp/asiocmake-populate-mkdir.rule"
+		},
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/asiocmake-populate-prefix/src/asiocmake-populate-stamp/asiocmake-populate-patch.rule"
+		},
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/asiocmake-populate-prefix/src/asiocmake-populate-stamp/asiocmake-populate-test.rule"
+		},
+		{
+			"file" : "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-subbuild/asiocmake-populate-prefix/src/asiocmake-populate-stamp/asiocmake-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"asiocmake-populate"
+		],
+		"name" : "asiocmake-populate"
+	}
+}

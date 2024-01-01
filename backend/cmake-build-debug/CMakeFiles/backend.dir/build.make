@@ -92,6 +92,7 @@ backend_EXTERNAL_OBJECTS =
 
 backend.exe: CMakeFiles/backend.dir/main.cpp.obj
 backend.exe: CMakeFiles/backend.dir/build.make
+backend.exe: _deps/asiocmake-build/libasio.a
 backend.exe: CMakeFiles/backend.dir/linkLibs.rsp
 backend.exe: CMakeFiles/backend.dir/objects1
 backend.exe: CMakeFiles/backend.dir/link.txt

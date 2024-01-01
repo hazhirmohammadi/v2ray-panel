@@ -14,6 +14,28 @@
 # EXTERNAL cache entries
 ########################
 
+//Should asio be declared with FetchContent functions to be compatible.
+// This doesn't not allow CPM cache to work.
+ASIO_CPM_FETCHCONTENT_COMPAT:BOOL=OFF
+
+//add one example to test binding/compilation
+ASIO_ENABLE_EXAMPLES:BOOL=OFF
+
+//Install the asio standalone library
+ASIO_ENABLE_INSTALL:BOOL=OFF
+
+//asio git repository url
+ASIO_REPOSITORY:STRING=https://github.com/chriskohlhoff/asio
+
+//asio git tag
+ASIO_TAG:STRING=asio-1-24-0
+
+//Download Asio with CPM instead of FetchContent
+ASIO_USE_CPM:BOOL=ON
+
+//asio library version
+ASIO_VERSION:STRING=1.24.0
+
 //Build shared libraries (DLLs).
 BUILD_SHARED_LIBS:BOOL=OFF
 
@@ -343,8 +365,63 @@ CMAKE_STRIP:FILEPATH=C:/Program Files/JetBrains/CLion 2023.1/bin/mingw/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Don't create a package lock file in the binary path
+CPM_DONT_CREATE_PACKAGE_LOCK:BOOL=OFF
+
+//Don't update the module path to allow using find_package
+CPM_DONT_UPDATE_MODULE_PATH:BOOL=OFF
+
+//Always download dependencies from source
+CPM_DOWNLOAD_ALL:BOOL=OFF
+
+//Add all packages added through CPM.cmake to the package lock
+CPM_INCLUDE_ALL_IN_PACKAGE_LOCK:BOOL=OFF
+
+//Only use `find_package` to get dependencies
+CPM_LOCAL_PACKAGES_ONLY:BOOL=OFF
+
+//Directory to download CPM dependencies
+CPM_SOURCE_CACHE:PATH=OFF
+
+//Always try to use `find_package` to get dependencies
+CPM_USE_LOCAL_PACKAGES:BOOL=OFF
+
+//Use additional directory of package name in cache on the most
+// nested level.
+CPM_USE_NAMED_CACHE_DIRECTORIES:BOOL=OFF
+
 //Path to a program.
 CPPCHECK_EXECUTABLE:FILEPATH=CPPCHECK_EXECUTABLE-NOTFOUND
+
+//Directory under which to collect all populated content
+FETCHCONTENT_BASE_DIR:PATH=G:/c++/v2ray panel/backend/cmake-build-debug/_deps
+
+//Disables all attempts to download or update content and assumes
+// source dirs already exist
+FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
+
+//Enables QUIET option for all content population
+FETCHCONTENT_QUIET:BOOL=ON
+
+//When not empty, overrides where to find pre-populated content
+// for asio
+FETCHCONTENT_SOURCE_DIR_ASIO:PATH=
+
+//When not empty, overrides where to find pre-populated content
+// for asiocmake
+FETCHCONTENT_SOURCE_DIR_ASIOCMAKE:PATH=
+
+//Enables UPDATE_DISCONNECTED behavior for all content population
+FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of asio
+FETCHCONTENT_UPDATES_DISCONNECTED_ASIO:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of asiocmake
+FETCHCONTENT_UPDATES_DISCONNECTED_ASIOCMAKE:BOOL=OFF
+
+//Git command line client
+GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
 
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=PYTHON_EXECUTABLE-NOTFOUND
@@ -418,6 +495,15 @@ SQLiteCpp_LIB_DEPENDS:STATIC=general;SQLite::SQLite3;
 
 //Value Computed by CMake
 SQLiteCpp_SOURCE_DIR:STATIC=G:/c++/v2ray panel/backend
+
+//Value Computed by CMake
+asio.cmake_BINARY_DIR:STATIC=G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-build
+
+//Value Computed by CMake
+asio.cmake_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+asio.cmake_SOURCE_DIR:STATIC=G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-src
 
 //The directory containing a CMake configuration file for asio.
 asio_DIR:PATH=asio_DIR-NOTFOUND
@@ -538,6 +624,8 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=G:/c++/v2ray panel/backend
@@ -590,7 +678,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -644,8 +732,24 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_STRIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+CPM_DIRECTORY:INTERNAL=G:/c++/v2ray panel/backend/cmake-build-debug/cmake
+//Don't download or configure dependencies (for testing)
+CPM_DRY_RUN:INTERNAL=OFF
+CPM_FILE:INTERNAL=G:/c++/v2ray panel/backend/cmake-build-debug/cmake/CPM_10bf25a8113e2003f259536bc88ad7bc81eff8ff.cmake
+CPM_INDENT:INTERNAL=CPM:
+CPM_MODULE_PATH:INTERNAL=G:/c++/v2ray panel/backend/cmake-build-debug/CPM_modules
+CPM_PACKAGES:INTERNAL=asio
+CPM_PACKAGE_LOCK_FILE:INTERNAL=G:/c++/v2ray panel/backend/cmake-build-debug/cpm-package-lock.cmake
+CPM_PACKAGE_asio_BINARY_DIR:INTERNAL=G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asio-build
+CPM_PACKAGE_asio_SOURCE_DIR:INTERNAL=G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asio-src
+CPM_PACKAGE_asio_VERSION:INTERNAL=
+CPM_VERSION:INTERNAL=1.0.0-development-version
 //Details about finding Boost
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[C:/Program Files/boost/boost_1_66_0][c ][v1.66.0(1.45.0)]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//ADVANCED property for variable: GIT_EXECUTABLE
+GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //Components requested for this build tree.
