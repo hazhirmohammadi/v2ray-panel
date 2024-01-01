@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "G:/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c" "CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj" "gcc" "CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj.d"
   "G:/c++/v2ray panel/backend/main.cpp" "CMakeFiles/backend.dir/main.cpp.obj" "gcc" "CMakeFiles/backend.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-build/CMakeFiles/asio.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

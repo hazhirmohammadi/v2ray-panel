@@ -1,6 +1,3 @@
 G:/c++/v2ray panel/backend/cmake-build-debug/CMakeFiles/backend.dir
 G:/c++/v2ray panel/backend/cmake-build-debug/CMakeFiles/edit_cache.dir
 G:/c++/v2ray panel/backend/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-build/CMakeFiles/asio.dir
-G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-build/CMakeFiles/edit_cache.dir
-G:/c++/v2ray panel/backend/cmake-build-debug/_deps/asiocmake-build/CMakeFiles/rebuild_cache.dir

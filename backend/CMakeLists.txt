@@ -7,15 +7,15 @@ set(CMAKE_CXX_STANDARD 17)
 #add_executable(backend main.cpp)
 find_package(Boost 1.55.0 COMPONENTS system) # Specify the Boost components you need
 include_directories(${Boost_INCLUDE_DIRS})
-add_executable(backend ${SOURCE_FILES} main.cpp)
+add_executable(backend ${SOURCE_FILES} main.cpp ../../lib/SQLiteCpp-master/sqlite3/sqlite3.h ../../lib/SQLiteCpp-master/sqlite3/sqlite3.c)
 target_link_libraries(backend ${Boost_LIBRARIES})
 
-include(FetchContent)
-FetchContent_Declare(asiocmake GIT_REPOSITORY "https://github.com/OlivierLDff/asio.cmake" GIT_TAG "main")
-FetchContent_MakeAvailable(asiocmake)
+#include(FetchContent)
+#FetchContent_Declare(asiocmake GIT_REPOSITORY "https://github.com/OlivierLDff/asio.cmake" GIT_TAG "main")
+#FetchContent_MakeAvailable(asiocmake)
 
 # Link your target with the ASIO library
-target_link_libraries(backend PRIVATE asio::asio)
+#target_link_libraries(backend PRIVATE asio::asio)
 
 #add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
 #file(GLOB SOURCES "../../lib/boost/*.hpp")

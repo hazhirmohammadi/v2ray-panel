@@ -128,18 +128,29 @@ backend/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/build
 .PHONY : backend/fast
 
-#=============================================================================
-# Target rules for targets named asio
+G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.obj: G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj
+.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.obj
 
-# Build rule for target.
-asio: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 asio
-.PHONY : asio
+# target to build an object file
+G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj
+.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj
 
-# fast build rule for target.
-asio/fast:
-	$(MAKE) $(MAKESILENT) -f _deps\asiocmake-build\CMakeFiles\asio.dir\build.make _deps/asiocmake-build/CMakeFiles/asio.dir/build
-.PHONY : asio/fast
+G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.i: G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.i
+.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.i
+
+# target to preprocess a source file
+G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.i
+.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.i
+
+G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.s: G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.s
+.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.s
+
+# target to generate assembly for a file
+G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.s
+.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -173,8 +184,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... asio
 	@echo ... backend
+	@echo ... G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.obj
+	@echo ... G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.i
+	@echo ... G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
