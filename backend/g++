@@ -1,0 +1,7 @@
+g++ -std=c++11 -I./crow/include -o your_crow_server main.cpp sqll3/sqlite3.h sqll3/sqlite3.c
+
+
+
+ g++ -std=c++11 -I./crow/include -o your_crow_server main.cpp -lsqlite3
+
+//sudo apt install sqlite3

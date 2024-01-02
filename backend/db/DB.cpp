@@ -8,7 +8,7 @@ std::string DB::query(std::string) {
     char* zErrMsg = 0;
     int rc;
 
-    rc = sqlite3_open("x.db", &db);
+    rc = sqlite3_open("/etc/x-ui/x-ui.db", &db);
 
     if (rc) {
         std::cerr << "Can't open database: " << sqlite3_errmsg(db) << std::endl;

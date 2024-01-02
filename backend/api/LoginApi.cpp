@@ -3,7 +3,7 @@
 //
 
 #include "LoginApi.h"
-
+// http://localhost:8080/login?username=your_username&password=your_password
 void LoginApi::loginHandler(const crow::request &req, crow::response &res) {
     std::string username = req.url_params.get("username");
     std::string password = req.url_params.get("password");
