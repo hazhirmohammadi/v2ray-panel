@@ -4,22 +4,21 @@ import {Header} from "./components";
 import React, {useState} from "react";
 import Modal from "./components/Modal.jsx";
 import useModalStore from "./Store.js";
-import axios from "axios";
-
+import {UserCard} from "./components/index.js";
+import {userCard} from "./constants.js";
 
 function App() {
    const {isOpen, openModal, closeModal} = useModalStore();
 
 
-
-
    return (
        <>
           <main className={`${Style.paddingX} ${Style.maximum} pt-4 h-screen`}>
+
              <div className="flex flex-col">
                 <Header/>
              </div>
-
+             {/*Modal*/}
              <div>
                 <div>
                    <button onClick={openModal}>Open Modal</button>
@@ -29,7 +28,16 @@ function App() {
                    </Modal>
                 </div>
              </div>
-
+             <div className="grid grid-cols-2  gap-2 ">
+                {userCard.map((card,index)=>(
+                    <UserCard
+                        key={index}
+                        name={card.name}
+                        status={card.status}
+                        time={card.time}
+                    />
+                    ))}
+             </div>
           </main>
        </>
    )

@@ -3,7 +3,8 @@ import Modal from "./Modal.jsx";
 import {users} from "../constants.js";
 import useModalStore from "../Store.js";
 const StatusBar = () => {
-   const { openModal } = useModalStore();
+   const { openModal,fetchView } = useModalStore();
+
    return (
        <div className="  bg-slate-900 w-full rounded-lg flex flex-row p-2 h-full">
 
@@ -23,13 +24,19 @@ const StatusBar = () => {
           </div>
 
           <div className="items-center justify-center ml-2 flex flex-col w-full">
+             {/*Online*/}
              <div className="flex flex-row items-center justify-between mb-1 w-full">
                 <div className="flex flex-row items-center">
                    <span className=" text-sm">Online:</span>
                    <span className="ml-2 text-green-400 bg-gray-950 p-1 rounded-lg text-sm">48 👁</span>
                 </div>
-                <button onClick={openModal} className="p-1 rounded-lg bg-green-700 ml-3">view</button>
+                <button onClick={()=>{
+                   openModal()
+                   fetchView('/get').then(r => {
+                      console.log(`res View: ${r}`)}).catch(e=>{console.log(`error View ${e}`)})
+                }} className="p-1 rounded-lg bg-green-700 ml-3">view</button>
              </div>
+             {/*Depleted*/}
              <div className="flex flex-row items-center justify-between mb-1 w-full">
                 <div className="flex flex-row items-center">
                    <span className=" text-sm">Depleted:</span>
@@ -37,6 +44,7 @@ const StatusBar = () => {
                 </div>
                 <button className="p-1 rounded-lg bg-red-700 ml-3">view</button>
              </div>
+             {/*Disabled*/}
              <div className="flex flex-row items-center justify-between mb-1 w-full">
                 <div className="flex flex-row items-center">
                    <span className=" text-sm">Disabled:</span>
