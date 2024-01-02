@@ -21,6 +21,7 @@ void LoginApi::loginHandler(const crow::request &req, crow::response &res) {
 }
 
 void LoginApi::check(const crow::request &req, crow::response &res) {
+    bool b;
     std::string sessionCookie = req.get_header_value("Cookie");
 
     // Check if session cookie exists
