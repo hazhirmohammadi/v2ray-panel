@@ -3,7 +3,6 @@
 //
 
 #include "DB.h"
-
 std::string DB::query(std::string) {
     sqlite3* db;
     char* zErrMsg = 0;

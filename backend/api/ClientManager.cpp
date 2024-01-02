@@ -4,6 +4,6 @@
 
 #include "ClientManager.h"
 
-std::string ClientManager::msg() {
+std::string ClientManager::msg(std::string) {
     return "";
 }
