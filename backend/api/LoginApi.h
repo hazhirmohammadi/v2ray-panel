@@ -13,7 +13,7 @@ class LoginApi {
     };
     void loginHandler(const crow::request& req, crow::response& res);
 
-    void check(const crow::request& req, crow::response& res) ;
+    void check(const crow::request& req, crow::response& res);
 
 };
 
