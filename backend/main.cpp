@@ -41,7 +41,12 @@ int main() {
 //
 //        std::cout << "Hello,!" << std::endl;
 //        crow::SimpleApp app;
-//
+
+//     CROW_ROUTE(app, "/login")
+//        .methods("GET"_method)
+//        ([&](const crow::request& req, crow::response& res) {
+//            loginHandler(req, res);
+//        });
 //        CROW_ROUTE(app, "/")([]() {
 //            return "Hello world";
 //        });
@@ -74,3 +79,4 @@ int time() {
     int day = timeinfo->tm_mday;
     return day;
 }
+//
