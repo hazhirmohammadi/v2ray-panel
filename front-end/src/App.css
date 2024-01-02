@@ -21,3 +21,6 @@
     @apply bg-red-500 text-white p-2 rounded-lg;
     margin-top: 10px;
 }
+.primary-btn{
+    @apply p-1 rounded-lg font-light text-xs;
+}

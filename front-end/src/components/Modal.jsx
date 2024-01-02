@@ -1,7 +1,10 @@
 import React from 'react';
+import useModalStore from "../Store.js";
 
 
 const Modal = ({ isOpen, onClose, children }) => {
+   const {dataView}=useModalStore();
+
    if (!isOpen) {
       return null;
    }
