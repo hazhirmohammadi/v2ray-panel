@@ -1,5 +1,5 @@
 #include <iostream>
-#include "sqll3/sqlite3.h"
+#include "sqlite3.h" // change to sqlite3.h for server else sqll3/sqlite3.h
 #include "api/LoginApi.cpp"
 bool isTest = false;
 #if !isTest
@@ -41,14 +41,20 @@ int main() {
 //  .....
 LoginApi loginApi;
     if (!isTest) {
+    std::ofstream outputFile("crow.log");
+
+
+    std::streambuf* coutBuffer = std::cout.rdbuf();
+    std::cout.rdbuf(outputFile.rdbuf());
 
         std::cout << "Hello,!" << std::endl;
         crow::SimpleApp app;
 
      CROW_ROUTE(app, "/login")
-        .methods("GET"_method)
+        .methods("POST"_method)
         ([&](const crow::request& req, crow::response& res) {
             loginApi.loginHandler(req, res);
+
         });
         CROW_ROUTE(app, "/")([]() {
             return "Hello world";
@@ -63,7 +69,9 @@ LoginApi loginApi;
         });
 
         app.port(443).multithreaded().run();
+    std::cout.rdbuf(coutBuffer);
 
+    outputFile.close();
     }
 
     return 0;
@@ -83,3 +91,4 @@ int time() {
     return day;
 }
 //
+

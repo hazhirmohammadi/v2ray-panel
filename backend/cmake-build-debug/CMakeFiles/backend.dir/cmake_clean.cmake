@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj"
-  "CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj.d"
   "CMakeFiles/backend.dir/main.cpp.obj"
   "CMakeFiles/backend.dir/main.cpp.obj.d"
+  "CMakeFiles/backend.dir/sqll3/sqlite3.c.obj"
+  "CMakeFiles/backend.dir/sqll3/sqlite3.c.obj.d"
   "backend.exe"
   "backend.exe.manifest"
   "backend.pdb"

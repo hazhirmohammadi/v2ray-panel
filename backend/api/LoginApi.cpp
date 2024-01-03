@@ -11,6 +11,7 @@ void LoginApi::loginHandler(const crow::request &req, crow::response &res) {
     // Check if username and password match
     if (users.count(username) && users[username] == password) {
         // Set session cookie
+        res.code = 91;
         res.add_header("Set-Cookie", "session=" + username);
         res.write("Login successful");
         res.end();

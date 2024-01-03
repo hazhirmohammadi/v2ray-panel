@@ -83,31 +83,31 @@ CMakeFiles/backend.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/backend.dir/main.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "G:\c++\v2ray panel\backend\main.cpp" -o CMakeFiles\backend.dir\main.cpp.s
 
-CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj: CMakeFiles/backend.dir/flags.make
-CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj: CMakeFiles/backend.dir/includes_C.rsp
-CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj: G:/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c
-CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj: CMakeFiles/backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="G:\c++\v2ray panel\backend\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj -MF CMakeFiles\backend.dir\G_\c++\lib\SQLiteCpp-master\sqlite3\sqlite3.c.obj.d -o CMakeFiles\backend.dir\G_\c++\lib\SQLiteCpp-master\sqlite3\sqlite3.c.obj -c G:\c++\lib\SQLiteCpp-master\sqlite3\sqlite3.c
+CMakeFiles/backend.dir/sqll3/sqlite3.c.obj: CMakeFiles/backend.dir/flags.make
+CMakeFiles/backend.dir/sqll3/sqlite3.c.obj: CMakeFiles/backend.dir/includes_C.rsp
+CMakeFiles/backend.dir/sqll3/sqlite3.c.obj: G:/c++/v2ray\ panel/backend/sqll3/sqlite3.c
+CMakeFiles/backend.dir/sqll3/sqlite3.c.obj: CMakeFiles/backend.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="G:\c++\v2ray panel\backend\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/backend.dir/sqll3/sqlite3.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/backend.dir/sqll3/sqlite3.c.obj -MF CMakeFiles\backend.dir\sqll3\sqlite3.c.obj.d -o CMakeFiles\backend.dir\sqll3\sqlite3.c.obj -c "G:\c++\v2ray panel\backend\sqll3\sqlite3.c"
 
-CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E G:\c++\lib\SQLiteCpp-master\sqlite3\sqlite3.c > CMakeFiles\backend.dir\G_\c++\lib\SQLiteCpp-master\sqlite3\sqlite3.c.i
+CMakeFiles/backend.dir/sqll3/sqlite3.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/backend.dir/sqll3/sqlite3.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "G:\c++\v2ray panel\backend\sqll3\sqlite3.c" > CMakeFiles\backend.dir\sqll3\sqlite3.c.i
 
-CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S G:\c++\lib\SQLiteCpp-master\sqlite3\sqlite3.c -o CMakeFiles\backend.dir\G_\c++\lib\SQLiteCpp-master\sqlite3\sqlite3.c.s
+CMakeFiles/backend.dir/sqll3/sqlite3.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/backend.dir/sqll3/sqlite3.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "G:\c++\v2ray panel\backend\sqll3\sqlite3.c" -o CMakeFiles\backend.dir\sqll3\sqlite3.c.s
 
 # Object files for target backend
 backend_OBJECTS = \
 "CMakeFiles/backend.dir/main.cpp.obj" \
-"CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj"
+"CMakeFiles/backend.dir/sqll3/sqlite3.c.obj"
 
 # External object files for target backend
 backend_EXTERNAL_OBJECTS =
 
 backend.exe: CMakeFiles/backend.dir/main.cpp.obj
-backend.exe: CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj
+backend.exe: CMakeFiles/backend.dir/sqll3/sqlite3.c.obj
 backend.exe: CMakeFiles/backend.dir/build.make
 backend.exe: CMakeFiles/backend.dir/linkLibs.rsp
 backend.exe: CMakeFiles/backend.dir/objects1
