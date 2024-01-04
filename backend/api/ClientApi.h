@@ -6,11 +6,9 @@
 #define BACKEND_CLIENTAPI_H
 
 
-
 class ClientApi {
 
 };
-
 
 
 #endif //BACKEND_CLIENTAPI_H
