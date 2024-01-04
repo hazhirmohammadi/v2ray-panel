@@ -3,12 +3,15 @@
 //
 
 #include "DB.h"
-std::string DB::query(std::string) {
+DB::DB(std::string path) {
+    this->path = path;
+}
+std::string DB::query(std::string q) {
     sqlite3* db;
     char* zErrMsg = 0;
     int rc;
 
-    rc = sqlite3_open("/etc/x-ui/x-ui.db", &db);
+    rc = sqlite3_open(path.c_str(), &db);
 
     if (rc) {
         std::cerr << "Can't open database: " << sqlite3_errmsg(db) << std::endl;
@@ -27,6 +30,6 @@ std::string DB::query(std::string) {
     } else {
         std::cout << "Operation done successfully" << std::endl;
     }
-
     sqlite3_close(db);
 }
+

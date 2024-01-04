@@ -5,22 +5,27 @@
 #include "LoginApi.h"
 // http://localhost:8080/login?username=your_username&password=your_password
 void LoginApi::loginHandler(const crow::request &req, crow::response &res) {
-    std::string username = req.url_params.get("username");
-    std::string password = req.url_params.get("password");
+    // Retrieve the request body as a string
+    std::string requestBody = req.body;
 
+    // Parse the request body as JSON
+    crow::json::rvalue bodyJson = crow::json::load(requestBody);
+    std::string username = bodyJson["username"].s();
+    std::string password = bodyJson["password"].s();
     // Check if username and password match
     if (users.count(username) && users[username] == password) {
         // Set session cookie
         res.add_header("Set-Cookie", "session=" + username);
-        res.write("Login successful");
+
+        res.write("{ \"success\": true, \"msg\": \"Login successful\", \"obj\": \"No IP Record\" }");
         res.end();
     } else {
-        res.write("Invalid username or password");
+        res.write("{ \"success\": false, \"msg\": \"Invalid username or password\", \"obj\": \"No IP Record\" }");
         res.end();
     }
 }
 
-void LoginApi::check(const crow::request &req, crow::response &res) {
+bool LoginApi::check(const crow::request &req, crow::response &res) {
     bool b;
     std::string sessionCookie = req.get_header_value("Cookie");
 
@@ -30,8 +35,10 @@ void LoginApi::check(const crow::request &req, crow::response &res) {
 
         res.write("Protected content for user: " + username);
         res.end();
+        return true;
     } else {
         res.write("Access denied");
         res.end();
+        return false;
     }
 }

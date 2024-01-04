@@ -128,30 +128,6 @@ backend/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/build
 .PHONY : backend/fast
 
-G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.obj: G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj
-.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.obj
-
-# target to build an object file
-G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj
-.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.obj
-
-G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.i: G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.i
-.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.i
-
-# target to preprocess a source file
-G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.i
-.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.i
-
-G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.s: G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.s
-.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.s
-
-# target to generate assembly for a file
-G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.s
-.PHONY : G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c.s
-
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -176,6 +152,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+sqll3/sqlite3.obj: sqll3/sqlite3.c.obj
+.PHONY : sqll3/sqlite3.obj
+
+# target to build an object file
+sqll3/sqlite3.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/sqll3/sqlite3.c.obj
+.PHONY : sqll3/sqlite3.c.obj
+
+sqll3/sqlite3.i: sqll3/sqlite3.c.i
+.PHONY : sqll3/sqlite3.i
+
+# target to preprocess a source file
+sqll3/sqlite3.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/sqll3/sqlite3.c.i
+.PHONY : sqll3/sqlite3.c.i
+
+sqll3/sqlite3.s: sqll3/sqlite3.c.s
+.PHONY : sqll3/sqlite3.s
+
+# target to generate assembly for a file
+sqll3/sqlite3.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\backend.dir\build.make CMakeFiles/backend.dir/sqll3/sqlite3.c.s
+.PHONY : sqll3/sqlite3.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -185,12 +185,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... backend
-	@echo ... G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.obj
-	@echo ... G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.i
-	@echo ... G_/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... sqll3/sqlite3.obj
+	@echo ... sqll3/sqlite3.i
+	@echo ... sqll3/sqlite3.s
 .PHONY : help
 
 

@@ -8,13 +8,16 @@
 #include "../sqll3/sqlite3.h"
 
 class DB {
+    std::string path = "/etc/x-ui/x-ui.db";
     static int callback(void* NotUsed, int argc, char** argv, char** azColName) {
         for (int i = 0; i < argc; i++) {
             std::cout << azColName[i] << " = " << (argv[i] ? argv[i] : "NULL") << std::endl;
         }
         return 0;
     }
-    std::string query (std::string);
+public:
+    std::string query (std::string q);
+    DB(std::string path);
 };
 
 

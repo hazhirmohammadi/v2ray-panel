@@ -84,13 +84,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="G:/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c">
-			<Option target="backend"/>
-		</Unit>
-		<Unit filename="G:/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.h">
-			<Option target="backend"/>
-		</Unit>
 		<Unit filename="G:/c++/v2ray panel/backend/main.cpp">
+			<Option target="backend"/>
+		</Unit>
+		<Unit filename="G:/c++/v2ray panel/backend/sqll3/sqlite3.c">
+			<Option target="backend"/>
+		</Unit>
+		<Unit filename="G:/c++/v2ray panel/backend/sqll3/sqlite3.h">
 			<Option target="backend"/>
 		</Unit>
 		<Unit filename="G:/c++/v2ray panel/backend/CMakeLists.txt">

@@ -145,13 +145,13 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "G:/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.h",
+			"path" : "sqll3/sqlite3.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "G:/c++/lib/SQLiteCpp-master/sqlite3/sqlite3.c",
+			"path" : "sqll3/sqlite3.c",
 			"sourceGroupIndex" : 0
 		}
 	],
