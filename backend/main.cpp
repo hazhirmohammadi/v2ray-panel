@@ -53,9 +53,17 @@ LoginApi loginApi;
      CROW_ROUTE(app, "/login")
         .methods("POST"_method)
         ([&](const crow::request& req, crow::response& res) {
+            res.add_header("Access-Control-Allow-Origin", "localhost:5173");
+            res.add_header("Access-Control-Allow-Methods", "GET, POST");
+            res.add_header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
             loginApi.loginHandler(req, res);
 
         });
+        CROW_ROUTE(app, "/c")
+                .methods("GET"_method)
+                        ([&](const crow::request& req, crow::response& res) {
+                            loginApi.check(req, res);
+                        });
         CROW_ROUTE(app, "/")([]() {
             return "Hello world";
         });
@@ -68,7 +76,7 @@ LoginApi loginApi;
             return r;
         });
 
-        app.port(443).multithreaded().run();
+        app.port(300).multithreaded().run();
     std::cout.rdbuf(coutBuffer);
 
     outputFile.close();
