@@ -48,9 +48,11 @@ LoginApi loginApi;
     std::cout.rdbuf(outputFile.rdbuf());
 
         std::cout << "Hello,!" << std::endl;
-        crow::SimpleApp app;
+        crow::App<crow::CORSHandler> app;
+        auto& cors = app.get_middleware<crow::CORSHandler>();
 
-     CROW_ROUTE(app, "/login")
+        cors.prefix("/login").origin("http://localhost:5173");
+        CROW_ROUTE(app, "/login")
         .methods("POST"_method)
         ([&](const crow::request& req, crow::response& res) {
             res.add_header("Access-Control-Allow-Origin", "localhost:5173");
