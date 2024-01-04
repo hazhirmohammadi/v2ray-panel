@@ -6,16 +6,14 @@ import Modal from "./components/Modal.jsx";
 import useModalStore from "./Store.js";
 import {Login, UserCard} from "./components/index.js";
 import {userCard} from "./constants.js";
+import useLoginStore from "./LoginStore.js";
 
 function App() {
    const {isOpen, openModal, closeModal} = useModalStore();
-   const [isLoggedIn, setIsLoggedIn] = useState(false);
-   const handleLogin = (values) => {
-      // Perform login logic here
-      // For demonstration purposes, we'll just log the values and set isLoggedIn to true
-      console.log(`App ${values}`);
-      setIsLoggedIn(true);
-   };
+
+   const {isLoggedIn} = useLoginStore();
+
+   console.log(`is Login:${isLoggedIn}`)
 
 
    return (
@@ -48,9 +46,7 @@ function App() {
               </main>
               :
               <div className={`${Style.paddingX} ${Style.maximum} pt-4 h-screen`}>
-                 <Login
-                     onLogin={handleLogin}
-                 />
+                 <Login/>
               </div>
           }
        </>

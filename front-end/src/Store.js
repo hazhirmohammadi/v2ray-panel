@@ -1,6 +1,8 @@
 import create from 'zustand';
 import axios from 'axios';
-const useModalStore = create((set) => ({
+import {devtools} from "zustand/middleware";
+
+const useModalStore = create(devtools((set) => ({
    dataView: [],
    isOpen: false,
    openModal: () => set({isOpen: true}),
@@ -10,14 +12,12 @@ const useModalStore = create((set) => ({
          const response = await axios.get(api);
          const data = response.data;
 
-         set({ data });
+         set({data});
       } catch (error) {
          console.error('Error fetching data:', error);
       }
    },
-}));
-
-
+})));
 
 
 
