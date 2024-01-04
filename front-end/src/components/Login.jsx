@@ -1,23 +1,15 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
+import useLoginStore from "../LoginStore.js";
 
 const validationSchema = Yup.object().shape({
    username: Yup.string().required('Username is required'),
    password: Yup.string().required('Password is required'),
 });
 
-const Login = ({userLogin}) => {
-   const initialValues = {
-      username: '',
-      password: '',
-   };
-
-
-   const handleSubmit = (values) => {
-
-      console.log(values);
-   };
+const Login = () => {
+   const {initialValues, setAdminData, login} = useLoginStore();
 
    return (
        <div className="flex justify-center flex-col pt-24">
@@ -28,9 +20,15 @@ const Login = ({userLogin}) => {
              </div>
           </div>
           <Formik
-              initialValues={initialValues}
+              initialValues={{
+                 username:"",
+                 password:""
+              }}
               validationSchema={validationSchema}
-              onSubmit={handleSubmit}
+              onSubmit={(values) => {
+                 setAdminData(values)
+                 login()
+              }}
           >
              <Form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div className="mb-4">
@@ -43,7 +41,7 @@ const Login = ({userLogin}) => {
                        id="username"
                        name="username"
                    />
-                   <ErrorMessage name="username" component="div" className="text-red-500 text-xs italic" />
+                   <ErrorMessage name="username" component="div" className="text-red-500 text-xs italic"/>
                 </div>
 
                 <div className="mb-4">
@@ -56,7 +54,7 @@ const Login = ({userLogin}) => {
                        id="password"
                        name="password"
                    />
-                   <ErrorMessage name="password" component="div" className="text-red-500 text-xs italic" />
+                   <ErrorMessage name="password" component="div" className="text-red-500 text-xs italic"/>
                 </div>
 
                 <div className="flex items-center justify-between">
