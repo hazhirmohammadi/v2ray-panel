@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const users = [
    {
       name: "hazhir",
@@ -123,3 +125,19 @@ export const userCard= [
    },
 
 ]
+
+// // Request body data
+//          username:"bgm",
+//          password:"09146042182",
+
+// const postData = async () => {
+//    try {
+//       const response = await axios.get('http://176.9.248.19:300/login?username=bgm&password=09146042182');
+//
+//       console.log(response); // Response data
+//    } catch (error) {
+//       console.error(error);
+//    }
+// };
+//
+// postData();
