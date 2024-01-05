@@ -7,7 +7,8 @@
 
 
 class ClientApi {
-
+public:
+    void Handler ();
 };
 
 

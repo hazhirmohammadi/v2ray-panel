@@ -7,11 +7,14 @@
 #include "iostream"
 #include "../sqll3/sqlite3.h"
 
+static std::string r = "";
+
 class DB {
     std::string path = "/etc/x-ui/x-ui.db";
     static int callback(void* NotUsed, int argc, char** argv, char** azColName) {
         for (int i = 0; i < argc; i++) {
             std::cout << azColName[i] << " = " << (argv[i] ? argv[i] : "NULL") << std::endl;
+            r = (argv[i] ? argv[i] : "NULL");
         }
         return 0;
     }

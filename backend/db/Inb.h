@@ -5,12 +5,11 @@
 #ifndef BACKEND_INB_H
 #define BACKEND_INB_H
 
-
-
+#include "fstream"
+#include "iostream"
 class Inb {
-
+void addClient();
 };
-
 
 
 #endif //BACKEND_INB_H
