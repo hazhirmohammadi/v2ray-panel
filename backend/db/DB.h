@@ -7,6 +7,7 @@
 #include "iostream"
 #include "../sqll3/sqlite3.h"
 #include "../crow/crow_all.h"
+#include "user.h"
 static std::string r = "";
 
 class DB {
@@ -21,7 +22,8 @@ class DB {
 public:
     std::string query (std::string q);
     void addClient(){}
-    void addUser();
+    void addUser(user user);
+    void getUser(user user);
     DB(std::string path);
 };
 

@@ -13,8 +13,7 @@
 	{
 		"commands" : 
 		[
-			"add_executable",
-			"include_directories"
+			"add_executable"
 		],
 		"files" : 
 		[
@@ -28,13 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 10,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 9,
+				"line" : 11,
 				"parent" : 0
 			}
 		]
@@ -46,13 +39,6 @@
 			[
 				{
 					"fragment" : "-g -fdiagnostics-color=always"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 2,
-					"path" : "C:/Program Files/boost/boost_1_66_0"
 				}
 			],
 			"language" : "CXX",
@@ -74,13 +60,6 @@
 			[
 				{
 					"fragment" : "-g -fdiagnostics-color=always"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 2,
-					"path" : "C:/Program Files/boost/boost_1_66_0"
 				}
 			],
 			"language" : "C",

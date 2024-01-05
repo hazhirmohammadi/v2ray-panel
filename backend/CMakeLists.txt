@@ -5,9 +5,10 @@ set(CMAKE_CXX_STANDARD 17)
 #set(ROOT_ROOT ../../lib/boost)
 #add_subdirectory(../../lib/boost build)
 #add_executable(backend main.cpp)
-find_package(Boost 1.55.0 COMPONENTS system) # Specify the Boost components you need
-include_directories(${Boost_INCLUDE_DIRS})
-add_executable(backend ${SOURCE_FILES} main.cpp sqll3/sqlite3.h sqll3/sqlite3.c)
+#find_package(Boost 1.55.0 COMPONENTS system) # Specify the Boost components you need
+#include_directories(${Boost_INCLUDE_DIRS})
+#add here if u wanna use boost  ${SOURCE_FILES}
+add_executable(backend main.cpp sqll3/sqlite3.h sqll3/sqlite3.c)
 target_link_libraries(backend ${Boost_LIBRARIES})
 
 #include(FetchContent)

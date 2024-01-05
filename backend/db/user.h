@@ -10,6 +10,7 @@
 struct user{
     std::string name;
     std::string isub;
+    std::string id;
 public:
     void setName(std::string n){
         this->name = n;;
@@ -18,4 +19,9 @@ public:
     void setIsub(std::string n){
         this->isub = n;;
     }
+    std::string getIsub (){return isub;}
+    void setId(std::string n){
+        this->name = n;;
+    }
+    std::string getId(){return name;}
 };
