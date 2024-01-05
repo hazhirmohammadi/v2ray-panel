@@ -23,9 +23,10 @@ const Header = () => {
              <StatusBar/>
           </div>
 
-          <div className="bg-slate-900 p-4  flex flex-row justify-between relative mt-1 rounded-lg ">
-             <input className=" mr-1 rounded-lg text-white bg-slate-500 p-1 text-xs"  type="text" />
-             <button className="p-2 rounded-lg bg-green-700 ">search</button>
+          <div className="bg-slate-900 p-3  flex flex-row justify-between relative mt-1 rounded-lg ">
+             <input className=" mr-[2px] rounded-lg text-white bg-slate-500 p-1 text-xs"  type="text" />
+             <button className="p-2 w-full rounded-lg bg-green-700 mr-[2px] text-xs">search</button>
+             <button className="p-2 w-full rounded-lg bg-green-700  text-xs">Add </button>
           </div>
        </div>
    );

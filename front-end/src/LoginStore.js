@@ -3,7 +3,7 @@ import axios from "axios";
 import {devtools} from "zustand/middleware";
 
 const useLoginStore = create(devtools((set) => ({
-   isLoggedIn: false,
+   isLoggedIn: true,
    initialValues: {
       username: "",
       password: "",
