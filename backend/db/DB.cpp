@@ -24,6 +24,7 @@ void DB::getUser(user user) {
 
     query("SELECT name FROM client WHERE id = " + id);
 }
+
 std::string DB::query( std::string q) {
     sqlite3* db;
     char* zErrMsg = 0;
