@@ -11,7 +11,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
    return (
        <div className="modal">
-          <div className="modal-content">
+          <div className="modal-content blur-element">
              <button className="close-button " onClick={onClose}>
                 Close
              </button>

@@ -9,16 +9,16 @@ import {userCard} from "./constants.js";
 import useLoginStore from "./LoginStore.js";
 
 function App() {
-   const {isOpen, openModal, closeModal} = useModalStore();
+   const {isOpen, openModal, closeModal, dataView} = useModalStore();
 
    const {isLoggedIn} = useLoginStore();
 
    console.log(`is Login:${isLoggedIn}`)
 
 
+
    return (
        <>
-
           {isLoggedIn ? <main className={`${Style.paddingX} ${Style.maximum} pt-4 h-screen`}>
                  <div className="flex flex-col">
                     <Header/>
@@ -28,8 +28,11 @@ function App() {
                     <div>
                        <button onClick={openModal}>Open Modal</button>
                        <Modal isOpen={isOpen} onClose={closeModal}>
-                          <h2>Modal Content</h2>
-                          <p>This is the content of the modal.</p>
+                          <ul className="flex flex-col justify-center py-2 px-4 overflow-y-scroll">
+                             {userCard.map((item, index) => (
+                                    <li className="text-black border-b-[1px] border-b-gray-400 " key={index}>{item.name}</li>
+                             ))}
+                          </ul>
                        </Modal>
                     </div>
                  </div>
