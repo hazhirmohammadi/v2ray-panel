@@ -33,15 +33,9 @@ std::string DB::query(std::string q) {
     sqlite3_close(db);
     return r;
 }
-struct user{
-std::string name;
-std::string isub;
-public:
-    void setName(std::string n){
-        this->name = n;;
-    }
-    void setIsub(std::string n){
-        this->isub = n;;
-    }
-};
+void DB::addUser(){
+
+}
+
+
 

@@ -1,12 +1,12 @@
 //
-// Created by SoheilSystem on 1/2/2024.
+// Created by rezgar on 1/2/2024.
 //
 
 #ifndef BACKEND_DB_H
 #define BACKEND_DB_H
 #include "iostream"
 #include "../sqll3/sqlite3.h"
-
+#include "../crow/crow_all.h"
 static std::string r = "";
 
 class DB {
@@ -20,6 +20,8 @@ class DB {
     }
 public:
     std::string query (std::string q);
+    void addClient(){}
+    void addUser();
     DB(std::string path);
 };
 
