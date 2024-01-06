@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import Modal from "./Modal.jsx";
+import Modal from "../common/Modal.jsx";
 import {users} from "../constants.js";
 import useModalStore from "../Store.js";
 import axios from "axios";
 
 const StatusBar = () => {
-   const {openModal, fetchView} = useModalStore();
+   const {openModal, fetchView , modalType} = useModalStore();
 
    // const [status, setStatus] = useState();
    //
@@ -58,7 +58,8 @@ const StatusBar = () => {
                    <span className="ml-2 text-green-400 bg-gray-950 p-1 rounded-lg text-sm">48 👁</span>
                 </div>
                 <button onClick={() => {
-                   openModal()
+                    openModal()
+                    modalType("view")
                    fetchView('/get').then(r => {
                       console.log(`res View: ${r}`)
                    }).catch(e => {
