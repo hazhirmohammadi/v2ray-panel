@@ -1,5 +1,5 @@
 //
-// Created by SoheilSystem on 1/2/2024.
+// Created by rezgar on 1/2/2024.
 //
 
 #include "DB.h"
@@ -74,6 +74,11 @@ std::string DB::query( std::string q) {
 
 
 //int main() {
-//
+//DB db("G://c++/v2ray panel/backend");
+//user user;
+//user.setId("d");
+//user.setName("d");
+//user.setIsub("d");
+//db.addUser(user);
 //    return 0;
 //};
