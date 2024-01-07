@@ -21,7 +21,10 @@ class DB {
         return 0;
     }
 public:
+    bool secess= false;
+    std::string  res;
     std::string query (std::string q);
+    std::string q (std::string q);
     void addClient(){}
     void addUser(user user);
     void getUser(user user);

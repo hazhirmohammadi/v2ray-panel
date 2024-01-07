@@ -17,7 +17,8 @@ void ClientApi::adduHandler(const crow::request &req, crow::response &res) {
     user.setName(bodyJson["name"].s());
     user.setId(bodyJson["id"].s());
     crow::json::wvalue w;
-    user.setIsub("1");
+
+    user.setIsub(w.dump());
     db.addUser(user);
 
     w["in"]= db.secess;

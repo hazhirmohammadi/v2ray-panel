@@ -1,6 +1,7 @@
 #include <iostream>
 #include "sqlite3.h" // change to sqlite3.h for server else sqll3/sqlite3.h
 #include "api/LoginApi.cpp"
+#include "api/ClientApi.cpp"
 bool isTest = false;
 #if !isTest
 #include "crow/crow_all.h"
@@ -40,12 +41,15 @@ int main() {
 //    sqlite3_close(db);
 //  .....
 LoginApi loginApi;
+
+ClientApi clientApi;
+
     if (!isTest) {
-    std::ofstream outputFile("crow.log");
-
-
-    std::streambuf* coutBuffer = std::cout.rdbuf();
-    std::cout.rdbuf(outputFile.rdbuf());
+//    std::ofstream outputFile("crow.log");
+//
+//
+//    std::streambuf* coutBuffer = std::cout.rdbuf();
+//    std::cout.rdbuf(outputFile.rdbuf());
 
         std::cout << "Hello,!" << std::endl;
         crow::App<crow::CORSHandler> app;
@@ -69,6 +73,7 @@ LoginApi loginApi;
         CROW_ROUTE(app, "/")([]() {
             return "Hello world";
         });
+
         CROW_ROUTE(app, "/api/status")([]() {
             crow::json::wvalue r({
                                          {"cpu", "4%!"},
@@ -78,10 +83,28 @@ LoginApi loginApi;
             return r;
         });
 
-        app.port(300).multithreaded().run();
-    std::cout.rdbuf(coutBuffer);
+        CROW_ROUTE(app, "/add")
+                .methods("POST"_method)
+                        ([&](const crow::request& req, crow::response& res) {
+                            res.add_header("Access-Control-Allow-Origin", "localhost:5173");
+                            res.add_header("Access-Control-Allow-Methods", "GET, POST");
+                            res.add_header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                            clientApi.adduHandler(req, res);
 
-    outputFile.close();
+                        });
+        CROW_ROUTE(app, "/get")
+                .methods("POST"_method)
+                        ([&](const crow::request& req, crow::response& res) {
+                            res.add_header("Access-Control-Allow-Origin", "localhost:5173");
+                            res.add_header("Access-Control-Allow-Methods", "GET, POST");
+                            res.add_header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                            clientApi.getuHandler(req, res);
+
+                        });
+        app.port(300).multithreaded().run();
+//    std::cout.rdbuf(coutBuffer);
+//
+//    outputFile.close();
     }
 
     return 0;

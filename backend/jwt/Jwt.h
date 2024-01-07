@@ -6,11 +6,9 @@
 #define BACKEND_JWT_H
 
 
-
 class Jwt {
 
 };
-
 
 
 #endif //BACKEND_JWT_H

@@ -8,4 +8,5 @@
 DB db = DB("/usr/local/crow/b.db");
 
 void Inb::addClient() {
+
 }
