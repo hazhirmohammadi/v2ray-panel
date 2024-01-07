@@ -11,7 +11,7 @@
 }
 
 .modal-content {
-    height: 400px   ;
+    height: 500px   ;
     @apply bg-gray-700;
     overflow-y: scroll;
     padding: 20px;
@@ -48,3 +48,4 @@
 .primary-btn {
     @apply p-1 rounded-lg font-light text-xs;
 }
+

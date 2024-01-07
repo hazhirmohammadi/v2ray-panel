@@ -1,20 +1,15 @@
 import './App.css';
 import {Style} from "./Style.js";
 import {Header} from "./components";
-import React, {useState} from "react";
-import Modal from "./components/Modal.jsx";
+import Modal from "./common/Modal.jsx";
 import useModalStore from "./Store.js";
-import {Login, UserCard} from "./components/index.js";
+import {AddForm, Login, UserCard} from "./components/index.js";
 import {userCard} from "./constants.js";
 import useLoginStore from "./LoginStore.js";
 
 function App() {
-   const {isOpen, openModal, closeModal, dataView} = useModalStore();
-
+   const {isOpen, openModal, closeModal, dataView, modalComponent} = useModalStore();
    const {isLoggedIn} = useLoginStore();
-
-   console.log(`is Login:${isLoggedIn}`)
-
 
 
    return (
@@ -28,11 +23,10 @@ function App() {
                     <div>
                        <button onClick={openModal}>Open Modal</button>
                        <Modal isOpen={isOpen} onClose={closeModal}>
-                          <ul className="flex flex-col justify-center py-2 px-4 overflow-y-scroll">
-                             {userCard.map((item, index) => (
-                                    <li className="text-black border-b-[1px] border-b-gray-400 " key={index}>{item.name}</li>
-                             ))}
-                          </ul>
+                          {
+                             modalComponent === "view" ? <Header/> :
+                                 modalComponent === "addForm" ? <AddForm/> : ""
+                          }
                        </Modal>
                     </div>
                  </div>
@@ -48,6 +42,7 @@ function App() {
                  </div>
               </main>
               :
+
               <div className={`${Style.paddingX} ${Style.maximum} pt-4 h-screen`}>
                  <Login/>
               </div>
