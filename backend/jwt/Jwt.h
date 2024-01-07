@@ -5,9 +5,10 @@
 #ifndef BACKEND_JWT_H
 #define BACKEND_JWT_H
 
+#include "iostream"
 
 class Jwt {
-
+std::string encode (const std::string &in);
 };
 
 
