@@ -1,8 +1,11 @@
-import {Formik, Form, Field, ErrorMessage} from 'formik';
+import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from "yup";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {userCard} from "../constants.js";
+import {array} from "yup";
 
+
+//!  validation inputs form with Yup
 const validationSchema = Yup.object().shape({
    username: Yup.string().required('Username is required'),
    limitIp: Yup.number().required('required Enter Number '),
@@ -10,23 +13,30 @@ const validationSchema = Yup.object().shape({
    date: Yup.number().required('required Enter Number '),
 });
 const addForm = () => {
-   const [optionBounds,setOptionBounds]=useState([]);
-   const [inBounds, setInBounds] = useState([]);
+   // ? State inbounds ⤵
+   const [optionBounds, setOptionBounds] = useState([]);
+
    useEffect(() => {
+      console.log(optionBounds)
    }, [optionBounds]);
+   // initialValues for form
    const initialValues = {
       username: '',
       limitIp: '',
       flow: '',
       date: '',
-      inBounds:[]
+
    };
    const handleSubmit = (values) => {
+      let finalObj = values.push(optionBounds)
+      console.log(finalObj)
       // Handle form submission
-      console.log(values);
+
    };
 
-   const filterInBounds=(item)=>{
+
+   // ? filter inbounds ⤵
+   const filterInBounds = (item) => {
       setOptionBounds((prevOptionBounds) =>
           prevOptionBounds.filter((list) => list !== item)
       );
@@ -89,8 +99,10 @@ const addForm = () => {
                    inBound
                 </label>
                 <Field
-                    onChange={(e)=>{
-                       const newItem = e.target.values;
+                    onChange={(e) => {
+                       console.log(e.target.value)
+                       const newItem = e.target.value;
+
                        setOptionBounds((prevOptionBounds) => [...prevOptionBounds, newItem]);
                     }}
                     className="px-1 py-1 rounded-lg "
@@ -100,26 +112,30 @@ const addForm = () => {
                 >
                    {userCard.map((item, index) => (
                        <option
-                           onClick={()=>{
-                              const newItem = item.name;
-                              setOptionBounds((prevOptionBounds) => [...prevOptionBounds, newItem]);
-                           }}
                            key={index}
-                           value={item.id}
+                           value={item.name}
                        >
                           {item.name}
-                       </option>
+                       </option
+                          >
                    ))}
                 </Field>
 
              </div>
-             <div>
-                {optionBounds.map((item)=>(
+             <div className="flex flex-wrap  max-w-[220px]">
+                {optionBounds.map((item, index) => (
+
                     <button
-                        onClick={()=>{
+                        className={`m-[1px] py-1 px-1 rounded-lg text-center border-[1px] border-gray-500`}
+
+                        onClick={() => {
                            filterInBounds(item)
+                           console.log(`s ${item}`)
                         }}
-                        key={item}>{item}</button>
+                        key={index}>
+                       {item}
+                       <span className="ml-1 px-[4px] text-center text-red-400 border-red-400 border-[1px] text-xs rounded-full">x</span>
+                    </button>
                 ))}
              </div>
              <button type="submit" className="bg-indigo-500 text-white py-1 px-1 rounded-md">

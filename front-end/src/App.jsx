@@ -9,13 +9,9 @@ import useLoginStore from "./LoginStore.js";
 
 function App() {
    const {isOpen, openModal, closeModal, dataView, modalComponent} = useModalStore();
-   console.log(modalComponent)
    const {isLoggedIn} = useLoginStore();
 
-   // console.log(`is Login:${isLoggedIn}`)
 
-
-//common
    return (
        <>
           {isLoggedIn ? <main className={`${Style.paddingX} ${Style.maximum} pt-4 h-screen`}>
@@ -46,6 +42,7 @@ function App() {
                  </div>
               </main>
               :
+
               <div className={`${Style.paddingX} ${Style.maximum} pt-4 h-screen`}>
                  <Login/>
               </div>
