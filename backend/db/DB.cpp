@@ -14,6 +14,7 @@ void DB::addUser(user user){
     id = user.id;
 
     query("INSERT INTO client (id, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')");
+    std::cout << "INSERT INTO client (id, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')";
 
 
 }
@@ -77,7 +78,7 @@ std::string DB::q( std::string q) {
 }
 
 
-std::string DB::query(std::string q) {
+bool DB::query(std::string q) {
     sqlite3* db;
     char* zErrMsg = 0;
     int rc;
@@ -86,7 +87,7 @@ std::string DB::query(std::string q) {
 
     if (rc) {
         std::cerr << "Can't open database: " << sqlite3_errmsg(db) << std::endl;
-        return "";
+        return false;
     } else {
         std::cout << "Opened database successfully" << std::endl;
     }
@@ -97,17 +98,38 @@ std::string DB::query(std::string q) {
     if (rc != SQLITE_OK) {
         std::cerr << "Failed to prepare statement: " << sqlite3_errmsg(db) << std::endl;
         sqlite3_close(db);
-        return "";
+        return false;
     }
 
     // ...
 
     sqlite3_finalize(stmt);
     sqlite3_close(db);
-    res = result;
-    return result;
+    return true;
 }
+bool DB::userExists() {
+    std::string query = "SELECT COUNT(*) FROM client WHERE name = 'bgm'";
+    sqlite3_stmt* stmt;
+    int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, nullptr);
 
+    if (rc != SQLITE_OK) {
+        std::cerr << "Failed to prepare statement: " << sqlite3_errmsg(db) << std::endl;
+        return false;
+    }
+
+    rc = sqlite3_step(stmt);
+
+    if (rc == SQLITE_ROW) {
+        int count = sqlite3_column_int(stmt, 0);
+        if (count > 0) {
+            sqlite3_finalize(stmt);
+            return true;
+        }
+    }
+
+    sqlite3_finalize(stmt);
+    return false;
+}
 //int main() {
 //DB db("G://c++/v2ray panel/backend");
 //user user;

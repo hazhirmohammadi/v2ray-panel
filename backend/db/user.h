@@ -21,7 +21,7 @@ public:
     }
     std::string getIsub (){return isub;}
     void setId(std::string n){
-        this->name = n;;
+        this->id = n;
     }
-    std::string getId(){return name;}
+    std::string getId(){return id;}
 };

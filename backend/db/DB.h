@@ -23,11 +23,12 @@ class DB {
 public:
     bool secess= false;
     std::string  res;
-    std::string query (std::string q);
+    bool query (std::string q);
     std::string q (std::string q);
     void addClient(){}
     void addUser(user user);
     void getUser(user user);
+    bool userExists();
     DB(std::string path);
 };
 
