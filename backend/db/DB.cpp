@@ -7,15 +7,15 @@ DB::DB(std::string path) {
     this->path = path;
 }
 
-void DB::addUser(user user){
+bool DB::addUser(user user){
     std::string name , isub , id;
     name = user.name;
     isub = user.isub;
     id = user.id;
 
-    query("INSERT INTO client (id, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')");
     std::cout << "INSERT INTO client (id, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')";
 
+    return query("INSERT INTO client (id, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')");
 
 }
 
@@ -107,8 +107,31 @@ bool DB::query(std::string q) {
     sqlite3_close(db);
     return true;
 }
-bool DB::userExists() {
-    std::string query = "SELECT COUNT(*) FROM client WHERE name = 'bgm'";
+bool DB::userExists(std::string name ) {
+    std::string query = "SELECT COUNT(*) FROM client WHERE name = '" + name + "'";
+    sqlite3_stmt* stmt;
+    int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, nullptr);
+
+    if (rc != SQLITE_OK) {
+        std::cerr << "Failed to prepare statement: " << sqlite3_errmsg(db) << std::endl;
+        return false;
+    }
+
+    rc = sqlite3_step(stmt);
+
+    if (rc == SQLITE_ROW) {
+        int count = sqlite3_column_int(stmt, 0);
+        if (count > 0) {
+            sqlite3_finalize(stmt);
+            return true;
+        }
+    }
+
+    sqlite3_finalize(stmt);
+    return false;
+}
+bool DB::userIdExists(std::string id) {
+    std::string query = "SELECT COUNT(*) FROM client WHERE id = '" + id + "'";
     sqlite3_stmt* stmt;
     int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, nullptr);
 
