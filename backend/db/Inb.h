@@ -9,6 +9,7 @@
 #include "iostream"
 class Inb {
 void addClient();
+void getClient();
 };
 
 

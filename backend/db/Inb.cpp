@@ -3,3 +3,10 @@
 //
 
 #include "Inb.h"
+#include "DB.cpp"
+
+DB db = DB("/usr/local/crow/b.db");
+
+void Inb::addClient() {
+
+}

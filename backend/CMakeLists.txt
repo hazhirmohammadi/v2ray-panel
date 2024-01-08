@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 #include_directories(${Boost_INCLUDE_DIRS})
 #add here if u wanna use boost  ${SOURCE_FILES}
 add_executable(backend main.cpp sqll3/sqlite3.h sqll3/sqlite3.c)
-target_link_libraries(backend ${Boost_LIBRARIES})
+#target_link_libraries(backend ${Boost_LIBRARIES})
 
 #include(FetchContent)
 #FetchContent_Declare(asiocmake GIT_REPOSITORY "https://github.com/OlivierLDff/asio.cmake" GIT_TAG "main")

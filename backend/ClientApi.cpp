@@ -7,7 +7,6 @@
 #include "../../backend/db/DB.cpp"
 
 DB db = DB("/usr/local/crow/b.db");
-
 void ClientApi::adduHandler(const crow::request &req, crow::response &res) {
     // Retrieve the request body as a string
     std::string requestBody = req.body;
@@ -18,14 +17,11 @@ void ClientApi::adduHandler(const crow::request &req, crow::response &res) {
     user.setName(bodyJson["name"].s());
     user.setId(bodyJson["id"].s());
     crow::json::wvalue w;
-    user.setIsub("1");
-    if (db.addUser(user)){
-        w["in"] = true;
-    } else {
-        w["in"] = false;
-    }
 
+    user.setIsub(w.dump());
+    db.addUser(user);
 
+    w["in"]= db.secess;
     res.write(w.dump());
     res.write(db.res);
     res.end();
@@ -39,6 +35,6 @@ void ClientApi::getuHandler(const crow::request &req, crow::response &res) {
     user user;
     user.setName(bodyJson["name"].s());
     user.setId(bodyJson["id"].s());
-    res.write(db.res);
-    res.end();
+res.write(db.res);
+res.end();
 }
