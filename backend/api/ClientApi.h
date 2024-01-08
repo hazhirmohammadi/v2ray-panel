@@ -10,6 +10,7 @@ class ClientApi {
 public:
     void adduHandler (const crow::request& req, crow::response& res);
     void getuHandler (const crow::request& req, crow::response& res);
+    void getUsers(const crow::request &req, crow::response &res);
 };
 
 

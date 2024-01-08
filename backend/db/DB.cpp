@@ -3,6 +3,7 @@
 //
 
 #include "DB.h"
+#include "../sqll3/sqlite3.h"
 DB::DB(std::string path) {
     this->path = path;
 }
@@ -108,8 +109,11 @@ bool DB::query(std::string q) {
     return true;
 }
 bool DB::userExists(std::string name ) {
+
+    sqlite3* db;
     std::string query = "SELECT COUNT(*) FROM client WHERE name = '" + name + "'";
     sqlite3_stmt* stmt;
+    sqlite3_open(path.c_str(), &db);
     int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, nullptr);
 
     if (rc != SQLITE_OK) {
@@ -131,8 +135,10 @@ bool DB::userExists(std::string name ) {
     return false;
 }
 bool DB::userIdExists(std::string id) {
+    sqlite3* db;
     std::string query = "SELECT COUNT(*) FROM client WHERE id = '" + id + "'";
     sqlite3_stmt* stmt;
+    sqlite3_open(path.c_str(), &db);
     int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, nullptr);
 
     if (rc != SQLITE_OK) {

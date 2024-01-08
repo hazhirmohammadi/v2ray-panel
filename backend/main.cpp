@@ -101,6 +101,15 @@ ClientApi clientApi;
                             clientApi.getuHandler(req, res);
 
                         });
+        CROW_ROUTE(app, "/users")
+                .methods("POST"_method)
+                        ([&](const crow::request& req, crow::response& res) {
+                            res.add_header("Access-Control-Allow-Origin", "localhost:5173");
+                            res.add_header("Access-Control-Allow-Methods", "GET, POST");
+                            res.add_header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                            clientApi.getUsers(req, res);
+
+                        });
         app.port(300).multithreaded().run();
 //    std::cout.rdbuf(coutBuffer);
 //
