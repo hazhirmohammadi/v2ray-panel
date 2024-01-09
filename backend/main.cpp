@@ -53,6 +53,7 @@ ClientApi clientApi;
 
         std::cout << "Hello,!" << std::endl;
         crow::App<crow::CORSHandler> app;
+  //      app.ssl_file("/root/cert.crt", "/root/private.key");
         auto& cors = app.get_middleware<crow::CORSHandler>();
 
         cors.prefix("/login").origin("http://localhost:5173");
@@ -110,7 +111,20 @@ ClientApi clientApi;
                             clientApi.getUsers(req, res);
 
                         });
-        app.port(300).multithreaded().run();
+        CROW_ROUTE(app, "/h")([]() {
+            return         "<!DOCTYPE html>\n"
+                           "<html>\n"
+                           "<body>\n"
+                           "\n"
+                           "<h1> hasti is donkey</h1>\n"
+                           "\n"
+                           "<p> :) </p>\n"
+                           "\n"
+                           "</body>\n"
+                           "</html>";
+        });
+
+        app.port(2095).multithreaded().run();
 //    std::cout.rdbuf(coutBuffer);
 //
 //    outputFile.close();

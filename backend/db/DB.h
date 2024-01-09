@@ -30,6 +30,7 @@ public:
     void getUser(user user);
     bool userExists(std::string name);
     bool userIdExists(std::string id);
+    bool getUsers(user user,std::vector<crow::json::wvalue> a);
     DB(std::string path);
 };
 

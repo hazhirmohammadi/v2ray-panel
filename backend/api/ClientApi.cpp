@@ -34,12 +34,15 @@ void ClientApi::adduHandler(const crow::request &req, crow::response &res) {
 void ClientApi::getUsers(const crow::request &req, crow::response &res) {
     user user;
     crow::json::wvalue arry;
-    arry["name"] = "bgm";
+    arry["user"]["name"] = "bgm";
 
     std::vector<crow::json::wvalue> a;
     a.push_back(arry);
-    crow::json::wvalue j = crow::json::wvalue::list(a);
-    res.write(j.dump());
+    if (db.getUsers(user,a)){
+        crow::json::wvalue j = crow::json::wvalue::list(a);
+        res.write(j.dump());
+    }
+
     res.end();
 
 }
@@ -54,3 +57,4 @@ void ClientApi::getuHandler(const crow::request &req, crow::response &res) {
     res.write(db.res);
     res.end();
 }
+//

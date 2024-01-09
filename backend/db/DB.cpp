@@ -159,6 +159,44 @@ bool DB::userIdExists(std::string id) {
     sqlite3_finalize(stmt);
     return false;
 }
+
+bool DB::getUsers(user user,std::vector<crow::json::wvalue> a) {
+    sqlite3* db;
+    sqlite3_stmt* stmt;
+
+    // Open the database
+    int rc = sqlite3_open(path.c_str(), &db);
+    if (rc != SQLITE_OK) {
+        std::cerr << "Cannot open database: " << sqlite3_errmsg(db) << std::endl;
+        return false;
+    }
+
+    // Prepare the SQL statement
+    const char* sql = "SELECT * FROM client";
+    rc = sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+    if (rc != SQLITE_OK) {
+        std::cerr << "Cannot prepare statement: " << sqlite3_errmsg(db) << std::endl;
+        return false;
+    }
+
+    // Execute the statement and fetch the rows
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        // Access the columns of the current row
+        int id = sqlite3_column_int(stmt, 0);
+        const unsigned char* name = sqlite3_column_text(stmt, 1);
+
+        // Do something with the data
+        std::cout << "ID: " << id << ", Name: " << name << std::endl;
+        crow::json::wvalue w;
+        w["name"] = name;
+        a.push_back(w);
+    }
+
+    // Finalize the statement and close the database
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
+}
 //int main() {
 //DB db("G://c++/v2ray panel/backend");
 //user user;
