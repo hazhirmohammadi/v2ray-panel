@@ -20,4 +20,13 @@ To reattach to the screen session and interact with your server again, open a ne
 screen -r server_session
 
 
-disable : screen -X -S server_session quit
+disable : screen -d 918019.server_session     // id
+
+
+
+
+for get id :
+ ps aux | grep your_crow_server
+
+  for kill:
+  sudo kill -9

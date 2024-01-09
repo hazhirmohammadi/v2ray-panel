@@ -7,7 +7,7 @@
 #include "../../backend/db/DB.cpp"
 
 DB db = DB("/usr/local/crow/b.db");
-
+std::string db_path = "/usr/local/crow/b.db";
 void ClientApi::adduHandler(const crow::request &req, crow::response &res) {
     // Retrieve the request body as a string
     std::string requestBody = req.body;
@@ -33,13 +33,14 @@ void ClientApi::adduHandler(const crow::request &req, crow::response &res) {
 
 void ClientApi::getUsers(const crow::request &req, crow::response &res) {
     user user;
+    DB d = DB(db_path);
     crow::json::wvalue arry;
     arry["user"]["name"] = "bgm";
 
     std::vector<crow::json::wvalue> a;
     a.push_back(arry);
-    if (db.getUsers(user,a)){
-        crow::json::wvalue j = crow::json::wvalue::list(a);
+    if (d.getUsers(user,a)){
+        crow::json::wvalue j = crow::json::wvalue::list(d.list);
         res.write(j.dump());
     }
 

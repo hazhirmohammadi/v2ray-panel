@@ -10,10 +10,10 @@ DB::DB(std::string path) {
 
 bool DB::addUser(user user){
     std::string name , isub , id;
-    name = user.name;
-    isub = user.isub;
-    id = user.id;
 
+    id = user.getId();
+    name = user.getName();
+    isub = user.getIsub();
     std::cout << "INSERT INTO client (id, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')";
 
     return query("INSERT INTO client (id, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')");
@@ -183,19 +183,22 @@ bool DB::getUsers(user user,std::vector<crow::json::wvalue> a) {
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         // Access the columns of the current row
         int id = sqlite3_column_int(stmt, 0);
-        const unsigned char* name = sqlite3_column_text(stmt, 1);
+        const unsigned char* name = sqlite3_column_text(stmt, 2);
 
         // Do something with the data
-        std::cout << "ID: " << id << ", Name: " << name << std::endl;
         crow::json::wvalue w;
-        w["name"] = name;
-        a.push_back(w);
+        std::string nameStr(reinterpret_cast<const char*>(name));
+        w["user"]["name"] = nameStr;
+        std::cout << "ID: " << id << ", Name: " << name << "j:"<< w.dump()<<std::endl;
+
+        list.push_back(w);
+
     }
 
     // Finalize the statement and close the database
     sqlite3_finalize(stmt);
     sqlite3_close(db);
-
+    return true;
 }
 //int main() {
 //DB db("G://c++/v2ray panel/backend");
