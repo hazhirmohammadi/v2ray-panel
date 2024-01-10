@@ -9,15 +9,50 @@ DB::DB(std::string path) {
 }
 
 bool DB::addUser(user user){
-    std::string name , isub , id;
+  //  std::string name , isub , id;
 
-    id = user.getId();
-    name = user.getName();
-    isub = user.getIsub();
-    std::cout << "INSERT INTO client (uid, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')";
+//    id = user.getId();
+//    name = user.getName();
+//    isub = user.getIsub();
+//    std::cout << "INSERT INTO client (uid, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')";
+//
+//    return query("INSERT INTO client (uid, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "');");
 
-    return query("INSERT INTO client (uid, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')");
 
+    sqlite3* db;
+    int rc = sqlite3_open(path.c_str(), &db);
+    if (rc != SQLITE_OK) {
+        std::cerr << "Failed to open database: " << sqlite3_errmsg(db) << std::endl;
+        return 1;
+    }
+
+    // Insert a new row into the client table
+    std::string query = "INSERT INTO client (isub, name) VALUES (?, ?)";
+    sqlite3_stmt* stmt;
+    rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, nullptr);
+    if (rc != SQLITE_OK) {
+        std::cerr << "Failed to prepare statement: " << sqlite3_errmsg(db) << std::endl;
+        sqlite3_close(db);
+        return false;
+    }
+
+    // Bind the values to the placeholders
+    std::string isub("12345");
+    std::string name("Alice");
+
+    sqlite3_bind_text(stmt, 1, isub.c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 2, name.c_str(), -1, SQLITE_TRANSIENT);
+
+    rc = sqlite3_step(stmt);
+    if (rc != SQLITE_DONE) {
+        std::cerr << "Failed to execute statement: " << sqlite3_errmsg(db) << std::endl;
+        sqlite3_close(db);
+        return false;
+    }
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+    return true;
 }
 
 void DB::getUser(user user) {
