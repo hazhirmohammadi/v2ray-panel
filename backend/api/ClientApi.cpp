@@ -39,9 +39,15 @@ void ClientApi::getUsers(const crow::request &req, crow::response &res) {
 
     std::vector<crow::json::wvalue> a;
     a.push_back(arry);
+    crow::json::wvalue j = crow::json::wvalue::list();
     if (d.getUsers(user,a)){
-        crow::json::wvalue j = crow::json::wvalue::list(d.list);
+
+        j["status"] ["success"] = true;
+        j["users"] ["list"] = crow::json::wvalue::list(d.list);
         res.write(j.dump());
+    }else
+    {
+        j["status"] ["success"] = false;
     }
 
     res.end();

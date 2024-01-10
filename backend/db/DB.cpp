@@ -14,9 +14,9 @@ bool DB::addUser(user user){
     id = user.getId();
     name = user.getName();
     isub = user.getIsub();
-    std::cout << "INSERT INTO client (id, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')";
+    std::cout << "INSERT INTO client (uid, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')";
 
-    return query("INSERT INTO client (id, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')");
+    return query("INSERT INTO client (uid, isub, name) VALUES (" + id + ", '" + isub + "', '" + name + "')");
 
 }
 
