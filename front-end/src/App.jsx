@@ -9,30 +9,29 @@ import useLoginStore from "./LoginStore.js";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Toast from "./utils/Toast.js";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import userStore from "./UserStore.js";
 
 
 function App() {
-   const {isOpen, openModal, closeModal, dataView, modalComponent} = useModalStore();
+   const [users, setUsers] = useState();
+
+   const {isOpen, openModal, closeModal, modalComponent} = useModalStore();
    const {isLoggedIn} = useLoginStore();
-//toast
+   const {getUser}=userStore();
+   const data = userStore((state) => state.usersConfig);
 
-   if (isLoggedIn === true) {
-      let ee = {
-         type: "success",
-         mas: "Login success"
-      }
-      Toast(ee)
-   }
+   //?
+   useEffect(() => {
+      setUsers(data);
+      console.log(`gerten ${users}`)
+   }, [getUser]);
 
-   let ff = {
-      type: "success",
-      mas: "hii"
-   }
 
 
    return (
        <>
+
           {isLoggedIn ? <main className={`${Style.paddingX} ${Style.maximum} pt-4  relative  h-screen`}>
                  <ToastContainer
                      style={{
@@ -47,11 +46,7 @@ function App() {
                  <div className="flex flex-col">
                     <Header/>
                  </div>
-
-                 <button onClick={() => {
-                    Toast(ff)
-                 }}>ddd88
-                 </button>
+                 <button onClick={getUser}>gett</button>
                  {/*Modal*/}
                  <div>
                     <div>

@@ -5,10 +5,10 @@ import {devtools} from "zustand/middleware";
 const useModalStore = create(devtools((set) => ({
    dataView: [],
    isOpen: false,
-   modalComponent :"",
+   modalComponent: "",
    openModal: () => set({isOpen: true}),
    closeModal: () => set({isOpen: false}),
-   modalType :(type)=>set({modalComponent:type}),
+   modalType: (type) => set({modalComponent: type}),
    fetchView: async (api) => {
       try {
          const response = await axios.get(api);
@@ -20,7 +20,6 @@ const useModalStore = create(devtools((set) => ({
       }
    },
 })));
-
 
 
 export default useModalStore;

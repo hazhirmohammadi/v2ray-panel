@@ -1,10 +1,29 @@
-import React from 'react';
+"use strict"
+import React, {useEffect, useState} from 'react';
 import {StatusBar} from "./index.js"
 import {avatar, avatar_2} from "../assets/images"
 import useModalStore from "../Store.js";
+import axios from "axios";
 
 const Header = () => {
-   const{ openModal , modalType}=useModalStore();
+   const {openModal, modalType} = useModalStore();
+
+   const [status, setStatus] = useState();
+   // const fetchData = async () => {
+   //    try {
+   //       const response = await axios.get('http://176.9.248.19:300/api/status');
+   //
+   //       setStatus(response);
+   //    } catch (error) {
+   //       console.error(error);
+   //    }
+   // };
+   // useEffect(() => {
+   //    fetchData();
+   // }, []);
+   // console.log(status)
+
+
    return (
        <div className="   ">
           {/*Avatar */}
@@ -12,7 +31,7 @@ const Header = () => {
              {/*avatar bar*/}
              <div className="flex flex-row items-center bg-slate-900 rounded-lg p-2 ">
                 <div className="rounded-full size-[40px]  border-2 bg-cover bg-center relative z-20">
-                   <img  className="w-full h-full  rounded-full" src={avatar_2} alt=""/>
+                   <img className="w-full h-full  rounded-full" src={avatar_2} alt=""/>
                 </div>
                 <span className="ml-2 font-bold text-sm text-white p-1 rounded-lg bg-gray-950">Hazhir ✅</span>
              </div>
@@ -22,16 +41,17 @@ const Header = () => {
 
           {/*Status Bar*/}
           <div className=" flex justify-end mt-1">
-             <StatusBar/>
+             <StatusBar />
           </div>
 
           <div className="bg-slate-900 p-3  flex flex-row justify-between relative mt-1 rounded-lg ">
-             <input className=" mr-[2px] rounded-lg text-white bg-slate-500 p-1 text-xs"  type="text" />
+             <input className=" mr-[2px] rounded-lg text-white bg-slate-500 p-1 text-xs" type="text"/>
              <button className="p-2 w-full rounded-lg bg-green-700 mr-[2px] text-xs">search</button>
-             <button onClick={()=>{
+             <button onClick={() => {
                 openModal()
                 modalType("addForm")
-             }} className="p-2 w-full rounded-lg bg-green-700  text-xs ">Add </button>
+             }} className="p-2 w-full rounded-lg bg-green-700  text-xs ">Add
+             </button>
           </div>
        </div>
    );

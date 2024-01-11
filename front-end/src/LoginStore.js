@@ -1,10 +1,11 @@
 import create from "zustand";
 import axios from "axios";
 import {devtools} from "zustand/middleware";
-import toast, {handleFetchData} from "./utils/Toast.js";
+import Toast from "./utils/Toast.js";
+import {toast} from "react-toastify";
 
 const useLoginStore = create(devtools((set) => ({
-   isLoggedIn: false,
+   isLoggedIn: true,
    initialValues: {
       username: "",
       password: "",
@@ -26,7 +27,7 @@ const useLoginStore = create(devtools((set) => ({
 
          try {
             //*API request using axios
-            const res = await axios.post(`http://176.9.248.19:302/login`, loginJson, {
+             await axios.post(`http://176.9.248.19:300/login`, loginJson, {
                headers: {
                   'Content-Type': 'application/json',
                },
@@ -35,13 +36,13 @@ const useLoginStore = create(devtools((set) => ({
                console.log(`axios res 🥳: ${JsonRes}`);
                // Handle the response and update the login state accordingly
                if (res.data.success === true) {
+
                   set({isLoggedIn: true});
                } else {
                   set({isLoggedIn: false});
                }
             }).catch((err) => {
-               const JsonRes = JSON.stringify(res)
-               console.log(`axios err 🙂: ${JsonRes}`);
+               console.log(`axios err 🙂: ${err}`);
             })
          } catch (error) {
             const hh = JSON.stringify(error)
