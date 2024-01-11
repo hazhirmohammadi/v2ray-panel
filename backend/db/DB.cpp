@@ -171,7 +171,7 @@ bool DB::userExists(std::string name ) {
 }
 bool DB::userIdExists(std::string id) {
     sqlite3* db;
-    std::string query = "SELECT COUNT(*) FROM client WHERE id = '" + id + "'";
+    std::string query = "SELECT COUNT(*) FROM client WHERE uid = '" + id + "'";
     sqlite3_stmt* stmt;
     sqlite3_open(path.c_str(), &db);
     int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, nullptr);

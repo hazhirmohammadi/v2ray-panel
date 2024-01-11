@@ -5,7 +5,7 @@
 #include "ClientApi.h"
 #include "random"
 #include "../../backend/db/DB.cpp"
-
+#include "sstream"
 DB db = DB("/usr/local/crow/b.db");
 std::string db_path = "/usr/local/crow/b.db";
 
@@ -17,11 +17,11 @@ void ClientApi::adduHandler(const crow::request &req, crow::response &res) {
     crow::json::rvalue bodyJson = crow::json::load(requestBody);
     user user;
     user.setName(bodyJson["name"].s());
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis (100000000000,999999999999);
 
-    user.setId("" + dis(gen));
+
+
+
+    user.setId(i);
     crow::json::wvalue w;
     user.setIsub(bodyJson["id"].s());
     if (db.addUser(user)){
@@ -70,3 +70,28 @@ void ClientApi::getuHandler(const crow::request &req, crow::response &res) {
     res.end();
 }
 //
+
+
+std::string _id (){
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<long long int > dis (100000000000l,999999999999l);
+    long long g = dis(gen);
+    std::string i ;
+    std::stringstream stringstream;
+    stringstream<< g;
+    i = stringstream.str();
+    if(db.userIdExists(i)) {
+        while (true) {
+            if (db.userIdExists(i)) {
+                ++g;
+            }
+            else {
+                std::stringstream s;
+                stringstream<< g;
+                i = s.str();
+            }
+        }
+    }
+    return i;
+}
