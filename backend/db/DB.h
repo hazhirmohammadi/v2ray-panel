@@ -27,6 +27,7 @@ public:
     bool query (std::string q);
     std::string q (std::string q);
     void addClient(){}
+    std::string deleteUser(std::string uid);
     bool addUser(user user);
     void getUser(user user);
     bool userExists(std::string name);
