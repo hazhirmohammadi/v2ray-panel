@@ -3,11 +3,12 @@
 //
 
 #include "ClientApi.h"
-
+#include "random"
 #include "../../backend/db/DB.cpp"
 
 DB db = DB("/usr/local/crow/b.db");
 std::string db_path = "/usr/local/crow/b.db";
+
 void ClientApi::adduHandler(const crow::request &req, crow::response &res) {
     // Retrieve the request body as a string
     std::string requestBody = req.body;
@@ -16,9 +17,13 @@ void ClientApi::adduHandler(const crow::request &req, crow::response &res) {
     crow::json::rvalue bodyJson = crow::json::load(requestBody);
     user user;
     user.setName(bodyJson["name"].s());
-    user.setId(bodyJson["id"].s());
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis (100000000000,999999999999);
+
+    user.setId("" + dis(gen));
     crow::json::wvalue w;
-    user.setIsub("1");
+    user.setIsub(bodyJson["id"].s());
     if (db.addUser(user)){
         w["in"] = true;
     } else {

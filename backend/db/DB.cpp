@@ -23,7 +23,7 @@ bool DB::addUser(user user){
     int rc = sqlite3_open(path.c_str(), &db);
     if (rc != SQLITE_OK) {
         std::cerr << "Failed to open database: " << sqlite3_errmsg(db) << std::endl;
-        return 1;
+        return false;
     }
 
     // Insert a new row into the client table
@@ -37,8 +37,8 @@ bool DB::addUser(user user){
     }
 
     // Bind the values to the placeholders
-    std::string isub("12345");
-    std::string name("Alice");
+    std::string isub(user.getIsub());
+    std::string name(user.getName());
 
     sqlite3_bind_text(stmt, 1, isub.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_text(stmt, 2, name.c_str(), -1, SQLITE_TRANSIENT);
