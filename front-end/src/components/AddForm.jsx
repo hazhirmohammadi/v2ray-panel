@@ -3,37 +3,57 @@ import * as Yup from "yup";
 import React, {useEffect, useState} from "react";
 import {userCard} from "../constants.js";
 import {array} from "yup";
+import axios from "axios";
+import toast from "../utils/Toast.js";
 
 
 //!  validation inputs form with Yup
 const validationSchema = Yup.object().shape({
-   username: Yup.string().required('Username is required'),
-   limitIp: Yup.number().required('required Enter Number '),
+   name: Yup.string().required('Username is required'),
+   limit: Yup.number().required('required Enter Number '),
    flow: Yup.number().required('required Enter Number '),
-   date: Yup.number().required('required Enter Number '),
+   time: Yup.number().required('required Enter Number '),
 });
 const addForm = () => {
    // ? State inbounds ⤵
    const [optionBounds, setOptionBounds] = useState([]);
+   const [config, setConfig] = useState();
 
    useEffect(() => {
       console.log(optionBounds)
    }, [optionBounds]);
+
    // initialValues for form
    const initialValues = {
-      username: '',
-      limitIp: '',
+      name: '',
+      limit: '',
       flow: '',
-      date: '',
-
+      time: '',
+      id: ""
    };
-   const handleSubmit = (values) => {
-      let finalObj = values.push(optionBounds)
-      console.log(finalObj)
-      // Handle form submission
-
+   const handleSubmit = async (values) => {
+      setConfig(values)
+      console.log(values)
+      const res = await axios.post("http://176.9.248.19:300/add", {
+         name: values.name,
+         limit: values.limit,
+         flow: values.flow,
+         time: values.time,
+         id: ""
+      });
+      if (res.status===200){
+         toast({
+            type:"success",
+            massage:"success! added user"
+         })
+      }else {
+         toast({
+            type:"error",
+            massage:"error! added user"
+         })
+      }
+      console.log(res)
    };
-
 
    // ? filter inbounds ⤵
    const filterInBounds = (item) => {
@@ -42,32 +62,36 @@ const addForm = () => {
       );
    }
 
+   const addUser = async () => {
+
+   }
+
    return (
        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
           <Form>
              <div className="mb-2 mt-2 ">
-                <label htmlFor="username" className="block text-xs font-medium text-white ">
+                <label htmlFor="name" className="block text-xs font-medium text-white ">
                    Username
                 </label>
                 <Field
                     type="text"
-                    id="username"
-                    name="username"
+                    id="name"
+                    name="name"
                     className="border-none outline-none shadow-sm py-1 px-1 block w-full sm:text-sm border-gray-300 rounded-md"
                 />
-                <ErrorMessage name="username" component="div" className="text-red-500 text-xs italic"/>
+                <ErrorMessage name="name" component="div" className="text-red-500 text-xs italic"/>
              </div>
              <div className="mb-4">
-                <label htmlFor="limitIp" className="block text-xs font-medium text-white">
+                <label htmlFor="limit" className="block text-xs font-medium text-white">
                    limit IP
                 </label>
                 <Field
                     type="number"
-                    id="limitIp"
-                    name="limitIp"
+                    id="limit"
+                    name="limit"
                     className="border-none outline-none  shadow-sm py-1 px-1 text-blue-600 block w-full sm:text-sm border-gray-300 rounded-md"
                 />
-                <ErrorMessage name="limitIp" component="div" className="text-red-500 text-xs italic"/>
+                <ErrorMessage name="limit" component="div" className="text-red-500 text-xs italic"/>
              </div>
              <div className="mb-4">
                 <label htmlFor="flow  " className="block text-xs font-medium text-white">
@@ -83,16 +107,16 @@ const addForm = () => {
              </div>
 
              <div className="mb-4">
-                <label htmlFor="date" className="block text-xs font-medium text-white">
-                   Date
+                <label htmlFor="time" className="block text-xs font-medium text-white">
+                   time
                 </label>
                 <Field
                     type="number"
-                    id="date"
-                    name="date"
+                    id="time"
+                    name="time"
                     className="border-none outline-none  shadow-sm py-1 px-1 text-blue-600 block w-full sm:text-sm border-gray-300 rounded-md"
                 />
-                <ErrorMessage name="date" component="div" className="text-red-500 text-xs italic"/>
+                <ErrorMessage name="time" component="div" className="text-red-500 text-xs italic"/>
              </div>
              <div className=" flex flex-col justify-start my-2 ">
                 <label htmlFor="inBound" className="mb-1 text-xs font-medium text-white ">
@@ -117,7 +141,7 @@ const addForm = () => {
                        >
                           {item.name}
                        </option
-                          >
+                       >
                    ))}
                 </Field>
 
@@ -134,13 +158,15 @@ const addForm = () => {
                         }}
                         key={index}>
                        {item}
-                       <span className="ml-1 px-[4px] text-center text-red-400 border-red-400 border-[1px] text-xs rounded-full">x</span>
+                       <span
+                           className="ml-1 px-[4px] text-center text-red-400 border-red-400 border-[1px] text-xs rounded-full">x</span>
                     </button>
                 ))}
              </div>
-             <button type="submit" className="bg-indigo-500 text-white py-1 px-1 rounded-md">
+             <button onClick={addUser} type="submit" className="bg-indigo-500 text-white py-1 px-1 rounded-md">
                 Submit
              </button>
+
           </Form>
        </Formik>
    );

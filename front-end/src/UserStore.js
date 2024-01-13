@@ -2,22 +2,18 @@ import create from "zustand";
 import axios from "axios";
 
 const userStore = create((set) => ({
-   usersConfig: null,
-
+   usersConfig: [],
    getUser: async () => {
       try {
          console.log(10)
 
-         const response = await axios.post('http://176.9.248.19:300/users', {
-            users:[]
-         });
+         const response = await axios.get('http://176.9.248.19:300/users');
+         console.log(response.data.users.list)
          console.log(11)
-         const jsonResponse=JSON.stringify(response.data.users.list)
-         console.log(jsonResponse)
 
          console.log(12)
 
-         set({usersConfig: jsonResponse});
+          set({usersConfig:response.data.users.list });
          console.log(13)
       } catch (error) {
          console.log(error);
