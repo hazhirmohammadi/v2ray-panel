@@ -1,10 +1,10 @@
 import {toast} from "react-toastify";
-const Toast = (type) => {
-   console.log(type.type)
-   return toast(`${type.mas}`, {
+const Toast = ({massage:mas,type:type}) => {
+   console.log(type)
+   return toast.promise(`${mas}`, {
       position: "top-center",
       autoClose: 2000,
-      type:`${type.type}`,
+      type:`${type}`,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -16,5 +16,6 @@ const Toast = (type) => {
    });
 };
 export default Toast;
+
 
 

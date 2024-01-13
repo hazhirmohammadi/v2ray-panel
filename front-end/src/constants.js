@@ -1,3 +1,4 @@
+import CryptoJS from "crypto-js"
 export const users = [
    {
       name: "hazhir",
@@ -199,6 +200,3 @@ export const userCard = [
       id: 1
    },
 ];
-
-
-

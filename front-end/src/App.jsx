@@ -1,3 +1,4 @@
+"use client"
 import './App.css';
 import {Style} from "./Style.js";
 import {Header} from "./components";
@@ -8,28 +9,19 @@ import {userCard} from "./constants.js";
 import useLoginStore from "./LoginStore.js";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Toast from "./utils/Toast.js";
-import {useEffect} from "react";
+import {useEffect, useMemo, useState} from "react";
+import userStore from "./UserStore.js";
 
 
 function App() {
-   const {isOpen, openModal, closeModal, dataView, modalComponent} = useModalStore();
+   const {isOpen, openModal, closeModal, modalComponent} = useModalStore();
    const {isLoggedIn} = useLoginStore();
-//toast
-
-   if (isLoggedIn === true) {
-      let ee = {
-         type: "success",
-         mas: "Login success"
-      }
-      Toast(ee)
-   }
-
-   let ff = {
-      type: "success",
-      mas: "hii"
-   }
-
+   const {getUser} = userStore();
+   const {usersConfig} = userStore();
+   // console.log(`${usersConfig.user.name}`)
+   const userss = useMemo(() => {
+      return  usersConfig
+   }, [getUser]);
 
    return (
        <>
@@ -47,11 +39,7 @@ function App() {
                  <div className="flex flex-col">
                     <Header/>
                  </div>
-
-                 <button onClick={() => {
-                    Toast(ff)
-                 }}>ddd88
-                 </button>
+                 <button onClick={getUser}>gett</button>
                  {/*Modal*/}
                  <div>
                     <div>
@@ -65,10 +53,10 @@ function App() {
                     </div>
                  </div>
                  <div className="grid grid-cols-2  gap-2 ">
-                    {userCard.map((card, index) => (
+                    {usersConfig.map((card, index) => (
                         <UserCard
                             key={index}
-                            name={card.name}
+                            name={card.user.name}
                             status={card.status}
                             time={card.time}
                         />
