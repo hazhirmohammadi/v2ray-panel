@@ -22,8 +22,7 @@ function App() {
    const userss = useMemo(() => {
       return  usersConfig
    }, [getUser]);
-   
-   
+
    return (
        <>
           {isLoggedIn ? <main className={`${Style.paddingX} ${Style.maximum} pt-4  relative  h-screen`}>
