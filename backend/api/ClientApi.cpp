@@ -40,13 +40,21 @@ void ClientApi::adduHandler(const crow::request &req, crow::response &res) {
     user user;
     user.setName(bodyJson["name"].s());
 
+    std::string inb = "";
+
+    for (auto a : bodyJson["id"]["inb"]){
+        inb +=  a.s();
+    }
+
     user.setId(_id());
     crow::json::wvalue w;
-    user.setIsub(bodyJson["id"].s());
+    user.setIsub(inb);
+
+
     if (db.addUser(user)){
-        w["in"] = true;
+        w["status"] = true;
     } else {
-        w["in"] = false;
+        w["status"] = false;
     }
 
 

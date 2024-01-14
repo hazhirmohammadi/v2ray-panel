@@ -224,6 +224,7 @@ bool DB::getUsers(user user,std::vector<crow::json::wvalue> a) {
         crow::json::wvalue w;
         std::string nameStr(reinterpret_cast<const char*>(name));
         w["user"]["name"] = nameStr;
+        w["user"] ["id"] = id;
         std::cout << "ID: " << id << ", Name: " << name << "j:"<< w.dump()<<std::endl;
 
         list.push_back(w);
@@ -236,13 +237,13 @@ bool DB::getUsers(user user,std::vector<crow::json::wvalue> a) {
     return true;
 }
 
-std::string DB::deleteUser(std::string uid) {
+bool DB::deleteUser(std::string uid) {
     std::string query = "DELETE FROM client WHERE uid = :uid";
     sqlite3* db;
     sqlite3_stmt* stmt;
     int rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, nullptr);
     if (rc != SQLITE_OK) {
-        return "Failed to prepare statement";
+        return false;
     }
 
     sqlite3_bind_text(stmt, 1, uid.c_str(), -1, SQLITE_TRANSIENT);
@@ -250,11 +251,11 @@ std::string DB::deleteUser(std::string uid) {
     rc = sqlite3_step(stmt);
     if (rc != SQLITE_DONE) {
         sqlite3_finalize(stmt);
-        return "Failed to delete row";
+        return false;
     }
 
     sqlite3_finalize(stmt);
-    return "Row deleted successfully";
+    return true;
 }
 //int main() {
 //DB db("G://c++/v2ray panel/backend");

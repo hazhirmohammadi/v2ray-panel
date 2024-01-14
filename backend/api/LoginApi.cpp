@@ -33,9 +33,9 @@ bool LoginApi::check(const crow::request &req, crow::response &res) {
     // Check if session cookie exists
     if (sessionCookie.find("session=") != std::string::npos) {
         std::string username = sessionCookie.substr(sessionCookie.find("session=") + 8);
-
-        res.write("Protected content for user: " + username);
-        res.end();
+//
+//        res.write("Protected content for user: " + username);
+//        res.end();
         return true;
     } else {
         res.write("Access denied");
