@@ -87,7 +87,16 @@ ClientManager clientManager;
         CROW_ROUTE(app, "/")([]() {
             return "Hello world";
         });
-
+        CROW_ROUTE(app, "/inb")([]() {
+            crow::json::wvalue d;
+            std::vector<crow::json::wvalue> p;
+            crow::json::wvalue i;
+            i["i"] = "1";
+            i["i"] = "2";
+            p.push_back(i);
+            d["inb"] = crow::json::wvalue::list(p);
+            return d;
+        });
         CROW_ROUTE(app, "/api/status")([]() {
             crow::json::wvalue r({
                                          {"cpu", "4%!"},
@@ -140,6 +149,7 @@ ClientManager clientManager;
                             clientApi.getUsers(req, res);
 
                         });
+
         CROW_ROUTE(app, "/h")([]() {
             return "<!DOCTYPE html>\n"
                    "<html lang=\"en\">\n"
