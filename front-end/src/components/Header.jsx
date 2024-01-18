@@ -4,6 +4,7 @@ import {StatusBar} from "./index.js"
 import {avatar, avatar_2} from "../assets/images"
 import useModalStore from "../Store.js";
 import axios from "axios";
+import {search, union} from "../assets/icons/index.js";
 
 const Header = () => {
    const {openModal, modalType} = useModalStore();
@@ -29,11 +30,24 @@ const Header = () => {
           {/*Avatar */}
           <div className=" flex flex-col  ">
              {/*avatar bar*/}
-             <div className="flex flex-row items-center bg-slate-900 rounded-lg p-2 ">
-                <div className="rounded-full size-[40px]  border-2 bg-cover bg-center relative z-20">
-                   <img className="w-full h-full  rounded-full" src={avatar_2} alt=""/>
+             <div className="flex flex-row justify-between items-center rounded-lg p-1 ">
+                <div className="flex flex-row items-center ">
+                   <div className="rounded-full size-[40px]   bg-cover bg-center relative z-20">
+                      <img className="w-full h-full  rounded-full" src={avatar_2} alt=""/>
+                   </div>
+                   <div className="flex flex-col">
+                      <span className="ml-2 font-bold text-xs text-[#202020] font-[poppin-extrsLight]  ">God Morning</span>
+                      <span className="ml-2 font-bold text-sm text-white  font-[poppin-meidum] ">Hazhir</span>
+                   </div>
                 </div>
-                <span className="ml-2 font-bold text-sm text-white p-1 rounded-lg bg-gray-950">Hazhir ✅</span>
+                <div className="flex flex-row items-center gap-x-2">
+                   <div className="bg-[#262626] rounded-[15px] p-[10px]">
+                      <img className="size-[20px]" src={search} alt="search"/>
+                   </div>
+                   <div className="bg-[#262626] rounded-[15px] p-[10px]">
+                      <img className="size-[20px]" src={union} alt="union"/>
+                   </div>
+                </div>
              </div>
              {/*Search Bar*/}
 
