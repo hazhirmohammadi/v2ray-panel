@@ -6,7 +6,11 @@
 #define BACKEND_JWT_H
 
 #include "iostream"
-
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <algorithm>
 class Jwt {
 std::string encode (const std::string &in);
 };

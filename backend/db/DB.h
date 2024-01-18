@@ -9,6 +9,7 @@
 #include "sqlite3.h"
 #include "../crow/crow_all.h"
 #include "user.h"
+
 static std::string r = "";
 
 class DB {
@@ -23,13 +24,16 @@ class DB {
 public:
     bool secess= false;
     std::string  res;
+    std::vector<crow::json::wvalue> list;
     bool query (std::string q);
     std::string q (std::string q);
     void addClient(){}
+    bool deleteUser(std::string uid);
     bool addUser(user user);
     void getUser(user user);
     bool userExists(std::string name);
     bool userIdExists(std::string id);
+    bool getUsers(user user,std::vector<crow::json::wvalue> a);
     DB(std::string path);
 };
 

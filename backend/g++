@@ -5,3 +5,28 @@ g++ -std=c++11 -I./crow/include -o your_crow_server main.cpp sqll3/sqlite3.h sql
  g++ -std=c++11 -I./crow/include -o your_crow_server main.cpp -lsqlite3
 
 //sudo apt install sqlite3
+
+
+
+multi:
+
+screen -S server_session
+./your_server_file
+
+Detach from the screen session by pressing Ctrl + A followed by d
+
+To reattach to the screen session and interact with your server again, open a new terminal and run the following command:
+
+screen -r server_session
+
+
+disable : screen -d 918019.server_session     // id
+
+
+
+
+for get id :
+ ps aux | grep your_crow_server
+
+  for kill:
+  sudo kill -9

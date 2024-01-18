@@ -16,7 +16,7 @@ void LoginApi::loginHandler(const crow::request &req, crow::response &res) {
     // Check if username and password match
     if (users.count(username) && users[username] == password) {
         // Set session cookie
-        res.add_header("Set-Cookie", "session=" + username);
+        res.add_header("Set-Cookie", "sessionvv=" + username);
 
         res.write("{ \"success\": true, \"msg\": \"Login successful\", \"obj\": \"No IP Record\" }");
         res.end();
@@ -31,14 +31,15 @@ bool LoginApi::check(const crow::request &req, crow::response &res) {
     std::string sessionCookie = req.get_header_value("Cookie");
 
     // Check if session cookie exists
-    if (sessionCookie.find("session=") != std::string::npos) {
+    if (sessionCookie.find("sessionvv=") != std::string::npos) {
         std::string username = sessionCookie.substr(sessionCookie.find("session=") + 8);
-
-        res.write("Protected content for user: " + username);
-        res.end();
+//
+//        res.write("Protected content for user: " + username);
+//        res.end();
         return true;
     } else {
         res.write("Access denied");
+        res.code = 401;
         res.end();
         return false;
     }
