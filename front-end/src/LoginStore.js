@@ -5,7 +5,7 @@ import Toast from "./utils/Toast.js";
 import {toast} from "react-toastify";
 
 const useLoginStore = create(devtools((set) => ({
-   isLoggedIn: true,
+   isLoggedIn: false,
    initialValues: {
       username: "",
       password: "",
