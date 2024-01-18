@@ -9,6 +9,7 @@
 #include "sqlite3.h"
 #include "../crow/crow_all.h"
 #include "user.h"
+
 static std::string r = "";
 
 class DB {

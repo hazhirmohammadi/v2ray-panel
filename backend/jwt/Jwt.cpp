@@ -3,7 +3,11 @@
 //
 
 #include "Jwt.h"
-
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <algorithm>
 std::string Jwt::encode(const std::string &in) {
 
     std::string out;
@@ -42,4 +46,18 @@ std::string Jwt::encode(const std::string &in) {
     }
 
     return out;
+}
+std::string createJWT(const std::string &payload, const std::string &secret) {
+    // Header and Payload
+    std::string header = R"({"alg":"none","typ":"JWT"})";
+    std::string headerBase64 = base64_encode(header);
+    std::string payloadBase64 = base64_encode(payload);
+    // Concatenated Header and Payload
+    std::string concatenated = headerBase64 + "." + payloadBase64;
+
+    // Signature (empty for "none" algorithm)
+    std::string signatureBase64 = "";
+
+    // JWT
+    return concatenated + "." + signatureBase64;
 }

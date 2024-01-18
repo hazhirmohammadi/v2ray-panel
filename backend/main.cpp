@@ -131,8 +131,7 @@ ClientManager clientManager;
         CROW_ROUTE(app, "/get")
                 .methods("POST"_method)
                         ([&](const crow::request& req, crow::response& res) {
-
-                            res.add_header("Access-Control-Allow-Origin", "localhost:5173");
+                                                     res.add_header("Access-Control-Allow-Origin", "localhost:5173");
                             res.add_header("Access-Control-Allow-Methods", "GET, POST");
                             res.add_header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
                             if(loginApi.check(req,res))
@@ -145,9 +144,9 @@ ClientManager clientManager;
                             res.add_header("Access-Control-Allow-Origin", "localhost:5173");
                             res.add_header("Access-Control-Allow-Methods", "GET, POST");
                             res.add_header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-                            if(loginApi.check(req,res))
-                            clientApi.getUsers(req, res);
-
+                            if(loginApi.check(req,res)) {
+                                clientApi.getUsers(req, res);
+                            }
                         });
 
         CROW_ROUTE(app, "/h")([]() {
