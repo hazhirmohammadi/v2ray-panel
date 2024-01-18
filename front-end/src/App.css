@@ -48,4 +48,7 @@
 .primary-btn {
     @apply p-1 rounded-lg font-light text-xs;
 }
-
+.bg-blur-custom{
+    background-image: url("/front-end/src/assets/images/vector.png");
+    @apply blur-2xl ;
+}

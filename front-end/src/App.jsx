@@ -20,12 +20,13 @@ function App() {
    const {usersConfig} = userStore();
    // console.log(`${usersConfig.user.name}`)
    const userss = useMemo(() => {
-      return  usersConfig
+      return usersConfig
    }, [getUser]);
 
    return (
        <>
-          {isLoggedIn ? <main className={`${Style.paddingX} ${Style.maximum} pt-4  relative  h-screen`}>
+          {isLoggedIn ? <main className={`${Style.paddingX} ${Style.maximum} pt-4  relative  h-screen `}>
+
                  <ToastContainer
                      style={{
                         borderRadius: "15% ",
@@ -36,7 +37,7 @@ function App() {
                      }}
                  />
 
-                 <div className="flex flex-col">
+                 <div className="flex flex-col ">
                     <Header/>
                  </div>
                  <button onClick={getUser}>gett</button>
@@ -53,10 +54,10 @@ function App() {
                     </div>
                  </div>
                  <div className="grid grid-cols-2  gap-2 ">
-                    {usersConfig.map((card, index) => (
+                    {userCard.map((card, index) => (
                         <UserCard
                             key={index}
-                            name={card.user.name}
+                            name={card.name}
                             status={card.status}
                             time={card.time}
                         />

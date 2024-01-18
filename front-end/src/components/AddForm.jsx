@@ -39,18 +39,14 @@ const addForm = () => {
          limit: values.limit,
          flow: values.flow,
          time: values.time,
-         id: ""
+         id: {
+            inb:[""]
+         }
       });
+
+
       if (res.status===200){
-         toast({
-            type:"success",
-            massage:"success! added user"
-         })
       }else {
-         toast({
-            type:"error",
-            massage:"error! added user"
-         })
       }
       console.log(res)
    };

@@ -1,19 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base {
+    html {
+        font-family: "Proxima Nova",poppin-meidum, system-ui, sans-serif;
+    }
+}
 :root {
-    font-family: system-ui, Inter, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    @apply bg-gray-950;
+    @apply bg-[#0D0D0D];
     font-synthesis: none;
+    background-image: url("./assets/fonts/Poppins-Bold.otf");
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+    font-family: "poppin-bold";
+    src: url("./assets/fonts/Poppins-Bold.otf");
+}
+@font-face {
+    font-family: "poppin-meidum";
+    src: url("./assets/fonts/Poppins-Medium.otf");
+}
+@font-face {
+    font-family: "poppin-extrsLight";
+    src: url("./assets/fonts/Poppins-ExtraLight.otf");
 }
 
 
