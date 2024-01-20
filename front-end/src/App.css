@@ -52,3 +52,19 @@
     background-image: url("/front-end/src/assets/images/vector.png");
     @apply blur-2xl ;
 }
+.container-x{
+    display: flex;
+    gap: 20px;
+    width: 300px;
+    overflow: auto;
+    scroll-snap-type:x mandatory;
+}
+.slide{
+    flex: 0 0 200px;
+    height: 200px;
+    scroll-snap-stop: always;
+    scroll-snap-align: start;
+}
+.primary-box{
+    @apply py-[15px] px-5 bg-[#202020] ;
+}

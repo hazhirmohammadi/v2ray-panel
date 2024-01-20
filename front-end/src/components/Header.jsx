@@ -54,19 +54,22 @@ const Header = () => {
           </div>
 
           {/*Status Bar*/}
-          <div className=" flex justify-end mt-1">
+          <div className=" flex flex-col justify-end mt-2">
+             <div className='bg-[#262626] py-1 px-2  rounded-full  w-fit'>
+                <span className="text-sm">Status </span>
+             </div>
              <StatusBar />
           </div>
 
-          <div className="bg-slate-900 p-3  flex flex-row justify-between relative mt-1 rounded-lg ">
-             <input className=" mr-[2px] rounded-lg text-white bg-slate-500 p-1 text-xs" type="text"/>
-             <button className="p-2 w-full rounded-lg bg-green-700 mr-[2px] text-xs">search</button>
-             <button onClick={() => {
-                openModal()
-                modalType("addForm")
-             }} className="p-2 w-full rounded-lg bg-green-700  text-xs ">Add
-             </button>
-          </div>
+          {/*<div className="bg-slate-900 p-3  flex flex-row justify-between relative mt-1 rounded-lg ">*/}
+          {/*   <input className=" mr-[2px] rounded-lg text-white bg-slate-500 p-1 text-xs" type="text"/>*/}
+          {/*   <button className="p-2 w-full rounded-lg bg-green-700 mr-[2px] text-xs">search</button>*/}
+          {/*   <button onClick={() => {*/}
+          {/*      openModal()*/}
+          {/*      modalType("addForm")*/}
+          {/*   }} className="p-2 w-full rounded-lg bg-green-700  text-xs ">Add*/}
+          {/*   </button>*/}
+          {/*</div>*/}
        </div>
    );
 };
