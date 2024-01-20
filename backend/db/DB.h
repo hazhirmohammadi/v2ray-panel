@@ -23,6 +23,7 @@ class DB {
     }
 public:
     bool secess= false;
+
     std::string  res;
     std::vector<crow::json::wvalue> list;
     bool query (std::string q);
