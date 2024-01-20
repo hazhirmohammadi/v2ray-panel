@@ -40,11 +40,11 @@ function App() {
                  <div className="flex flex-col ">
                     <Header/>
                  </div>
-                 <button onClick={getUser}>gett</button>
+                 {/*<button onClick={getUser}>gett</button>*/}
                  {/*Modal*/}
                  <div>
                     <div>
-                       <button onClick={openModal}>Open Modal</button>
+                       {/*<button onClick={openModal}>Open Modal</button>*/}
                        <Modal isOpen={isOpen} onClose={closeModal}>
                           {
                              modalComponent === "view" ? <Header/> :
@@ -54,14 +54,14 @@ function App() {
                     </div>
                  </div>
                  <div className="grid grid-cols-2  gap-2 ">
-                    {userCard.map((card, index) => (
-                        <UserCard
-                            key={index}
-                            name={card.name}
-                            status={card.status}
-                            time={card.time}
-                        />
-                    ))}
+                    {/*{userCard.map((card, index) => (*/}
+                    {/*    <UserCard*/}
+                    {/*        key={index}*/}
+                    {/*        name={card.name}*/}
+                    {/*        status={card.status}*/}
+                    {/*        time={card.time}*/}
+                    {/*    />*/}
+                    {/*))}*/}
                  </div>
 
               </main>
