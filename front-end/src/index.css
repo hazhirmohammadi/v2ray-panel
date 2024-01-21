@@ -14,24 +14,39 @@
     color: rgba(255, 255, 255, 0.87);
     @apply bg-[#0D0D0D];
     font-synthesis: none;
-    background-image: url("./assets/fonts/Poppins-Bold.otf");
+    background-image: url("../public/assets/fonts/Poppins-Bold.otf");
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 @font-face {
     font-family: "poppin-bold";
-    src: url("./assets/fonts/Poppins-Bold.otf");
+    src: url("../public/assets/fonts/Poppins-Bold.otf");
 }
 @font-face {
     font-family: "poppin-meidum";
-    src: url("./assets/fonts/Poppins-Medium.otf");
+    src: url("../public/assets/fonts/Poppins-Medium.otf");
 }
 @font-face {
     font-family: "poppin-extrsLight";
-    src: url("./assets/fonts/Poppins-ExtraLight.otf");
+    src: url("../public/assets/fonts/Poppins-ExtraLight.otf");
 }
 
+progress[value] {
+    /* Custom styles for the indeterminate state */
+    background-color: #313131; /* Set the background color */
+    border-radius: 15px;
+    animation: progressIndeterminate 2s infinite;
+}
+
+@keyframes progressIndeterminate {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: 200px 0;
+    }
+}
 
 
 

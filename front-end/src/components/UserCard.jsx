@@ -26,22 +26,21 @@ const UserCard = ({name, time, status}) => {
 
 
    return (
-          <div className=" rounded-lg bg-slate-900    p-2  shadow shadow-slate-700">
+          <div className=" rounded-[20px] primary-box">
              <div className="text-xs flex ">
                 <span className="mr-2 text-emerald-600 font-medium">Name:</span><span>{name}</span>
              </div>
-             <div className=" text-xs">
-                <span className="mr-2 text-yellow-500 font-medium">Time:</span><span>{time}Day</span>
-             </div>
+
              <div className="text-xs">
                 <span className="mr-2 text-blue-600 font-medium">Status:</span>
                 <span className={`${sta}`}>{status}</span>
              </div>
-             <div className="flex flex-row bg-gray-800 py-2 px-[3px] rounded-lg">
-                <button className="w-full mr-2 primary-btn text-black bg-yellow-400">Edit</button>
-                <button className="w-full primary-btn  bg-red-500">Delete</button>
-
+             <div className=" text-xs">
+                {/*<progress className="w-full "  value={time} max={100}>*/}
+                {/*</progress>*/}
+                <my-web-component></my-web-component>
              </div>
+
           </div>
    );
 };

@@ -14,6 +14,7 @@ import userStore from "./UserStore.js";
 
 
 function App() {
+   const [pro, setPro] = useState(0)
    const {isOpen, openModal, closeModal, modalComponent} = useModalStore();
    const {isLoggedIn} = useLoginStore();
    const {getUser} = userStore();
@@ -23,57 +24,60 @@ function App() {
       return usersConfig
    }, [getUser]);
 
-   return (
-       <>
-          {isLoggedIn ? <main className={`${Style.paddingX} ${Style.maximum} pt-4  relative  h-screen `}>
+     
 
-                 <ToastContainer
-                     style={{
-                        borderRadius: "15% ",
-                        paddingLeft: "55px",
-                        paddingTop: "20px",
-                        marginLeft: "auto",
-                        marginRight: "auto"
-                     }}
-                 />
 
-                 <div className="flex flex-col ">
-                    <Header/>
-                 </div>
-                 {/*<button onClick={getUser}>gett</button>*/}
-                 {/*Modal*/}
-                 <div>
-                    <div>
-                       {/*<button onClick={openModal}>Open Modal</button>*/}
-                       <Modal isOpen={isOpen} onClose={closeModal}>
-                          {
-                             modalComponent === "view" ? <Header/> :
-                                 modalComponent === "addForm" ? <AddForm/> : ""
-                          }
-                       </Modal>
+      return (
+          <>
+             {isLoggedIn ? <main className={`${Style.paddingX} ${Style.maximum} pt-4  relative  h-screen `}>
+
+                    <ToastContainer
+                        style={{
+                           borderRadius: "15% ",
+                           paddingLeft: "55px",
+                           paddingTop: "20px",
+                           marginLeft: "auto",
+                           marginRight: "auto"
+                        }}
+                    />
+
+                    <div className="flex flex-col ">
+                       <Header/>
                     </div>
+                    {/*<button onClick={getUser}>gett</button>*/}
+                    {/*Modal*/}
+                    <div>
+                       <div>
+                          {/*<button onClick={openModal}>Open Modal</button>*/}
+                          <Modal isOpen={isOpen} onClose={closeModal}>
+                             {
+                                modalComponent === "view" ? <Header/> :
+                                    modalComponent === "addForm" ? <AddForm/> : ""
+                             }
+                          </Modal>
+                       </div>
+                    </div>
+                    <div className=" flex flex-col gap-2 ">
+                       {userCard.map((card, index) => (
+                           <UserCard
+                               key={index}
+                               name={card.name}
+                               status={card.status}
+                               time={card.time}
+                           />
+                       ))}
+                    </div>
+
+                 </main>
+
+                 :
+
+                 <div className={`${Style.paddingX} ${Style.maximum} pt-4 h-screen`}>
+                    <Login/>
                  </div>
-                 <div className="grid grid-cols-2  gap-2 ">
-                    {/*{userCard.map((card, index) => (*/}
-                    {/*    <UserCard*/}
-                    {/*        key={index}*/}
-                    {/*        name={card.name}*/}
-                    {/*        status={card.status}*/}
-                    {/*        time={card.time}*/}
-                    {/*    />*/}
-                    {/*))}*/}
-                 </div>
-
-              </main>
-
-              :
-
-              <div className={`${Style.paddingX} ${Style.maximum} pt-4 h-screen`}>
-                 <Login/>
-              </div>
-          }
-       </>
-   )
+             }
+          </>
+      )
 }
 
 export default App;
