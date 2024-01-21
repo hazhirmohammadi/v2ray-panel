@@ -49,15 +49,16 @@
     @apply p-1 rounded-lg font-light text-xs;
 }
 .bg-blur-custom{
-    background-image: url("/front-end/src/assets/images/vector.png");
+    background-image: url("/front-end/public/assets/images/vector.png");
     @apply blur-2xl ;
 }
 .container-x{
     display: flex;
     gap: 20px;
     width: 300px;
-    overflow: auto;
+    overflow-x: auto;
     scroll-snap-type:x mandatory;
+    scrollbar-width:none;
 }
 .slide{
     flex: 0 0 200px;

@@ -1,10 +1,10 @@
 "use strict"
 import React, {useEffect, useState} from 'react';
 import {StatusBar} from "./index.js"
-import {avatar, avatar_2} from "../assets/images"
+import {avatar, avatar_2} from "../../public/assets/images"
 import useModalStore from "../Store.js";
 import axios from "axios";
-import {search, union} from "../assets/icons/index.js";
+import {search, union} from "../../public/assets/icons/index.js";
 
 const Header = () => {
    const {openModal, modalType} = useModalStore();
