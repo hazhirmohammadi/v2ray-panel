@@ -29,7 +29,7 @@ function App() {
 
       return (
           <>
-             {isLoggedIn ? <main className={`${Style.paddingX} ${Style.maximum} pt-4  relative  h-screen `}>
+             {isLoggedIn ? <main className={` ${Style.maximum} pt-4  relative  h-screen `}>
 
                     <ToastContainer
                         style={{
@@ -40,15 +40,12 @@ function App() {
                            marginRight: "auto"
                         }}
                     />
-
                     <div className="flex flex-col ">
                        <Header/>
                     </div>
-                    {/*<button onClick={getUser}>gett</button>*/}
-                    {/*Modal*/}
-                    <div>
+
+                    <div className={`${Style.paddingX}`}>
                        <div>
-                          {/*<button onClick={openModal}>Open Modal</button>*/}
                           <Modal isOpen={isOpen} onClose={closeModal}>
                              {
                                 modalComponent === "view" ? <Header/> :
@@ -57,7 +54,7 @@ function App() {
                           </Modal>
                        </div>
                     </div>
-                    <div className=" flex flex-col gap-2 ">
+                    <div className={`${Style.paddingX} flex flex-col gap-2 `}>
                        {userCard.map((card, index) => (
                            <UserCard
                                key={index}
