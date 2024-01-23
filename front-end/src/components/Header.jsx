@@ -37,7 +37,9 @@ const Header = () => {
                    </Link>
                 </div>
                 <div className="bg-[#262626] rounded-[15px] p-[10px]">
-                   <img className="size-[20px]" src={union} alt="union"/>
+                  <Link to="/alerts">
+                     <img className="size-[20px]" src={union} alt="union"/>
+                  </Link>
                 </div>
              </div>
           </div>
