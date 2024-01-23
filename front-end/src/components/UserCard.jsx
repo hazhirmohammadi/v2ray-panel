@@ -1,4 +1,5 @@
 import React from 'react';
+import Progress from "../common/progress.jsx";
 
 const UserCard = ({name, time, status}) => {
 
@@ -24,24 +25,26 @@ const UserCard = ({name, time, status}) => {
    }
 
 
-
    return (
-          <div className=" rounded-[20px] primary-box">
-             <div className="text-xs flex ">
-                <span className="mr-2 text-emerald-600 font-medium">Name:</span><span>{name}</span>
-             </div>
+       <div className=" rounded-[20px] primary-box">
+          <div className="text-xs flex ">
+             <span className="mr-2 text-emerald-600 font-medium">Name:</span><span>{name}</span>
+          </div>
 
-             <div className="text-xs">
-                <span className="mr-2 text-blue-600 font-medium">Status:</span>
-                <span className={`${sta}`}>{status}</span>
-             </div>
-             <div className=" text-xs">
-                {/*<progress className="w-full "  value={time} max={100}>*/}
-                {/*</progress>*/}
-                <my-web-component></my-web-component>
-             </div>
+          <div className="text-xs">
+             <span className="mr-2 text-blue-600 font-medium">Status:</span>
+             <span className={`${sta}`}>{status}</span>
+          </div>
+          <div className=" text-xs">
+             <Progress
+                 time={15}
+                 max={30}
+             />
+
 
           </div>
+
+       </div>
    );
 };
 
