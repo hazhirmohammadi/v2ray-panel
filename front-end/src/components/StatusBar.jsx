@@ -1,9 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import Modal from "../common/Modal.jsx";
-import {users} from "../constants.js";
 import useModalStore from "../Store.js";
-import axios from "axios";
-
 const StatusBar = ({status}) => {
 
    const {openModal, fetchView, modalType} = useModalStore();

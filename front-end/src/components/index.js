@@ -4,6 +4,7 @@ import Login from "./Login.jsx";
 import UserCard from "./UserCard.jsx";
 import StatusBar from "./StatusBar.jsx";
 import Search from "./Search.jsx";
+import Avatar from "./Avatar.jsx";
 export {
    AddForm,
     Header,
@@ -11,4 +12,5 @@ export {
     UserCard,
     StatusBar,
     Search,
+    Avatar,
 };

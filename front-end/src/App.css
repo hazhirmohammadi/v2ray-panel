@@ -66,6 +66,11 @@
     scroll-snap-stop: always;
     scroll-snap-align: start;
 }
+.slide-filter{
+
+    scroll-snap-stop: always;
+    scroll-snap-align: start;
+}
 .primary-box{
     @apply py-[15px] px-5 bg-[#202020] ;
 }

@@ -14,7 +14,6 @@ import userStore from "./UserStore.js";
 
 
 function App() {
-   const [pro, setPro] = useState(0)
    const {isOpen, openModal, closeModal, modalComponent} = useModalStore();
    const {isLoggedIn} = useLoginStore();
    const {getUser} = userStore();
@@ -25,7 +24,6 @@ function App() {
    }, [getUser]);
 
      
-
 
       return (
           <>
