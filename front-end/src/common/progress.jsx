@@ -1,9 +1,7 @@
 const Progress = (time) => {
    //user time
    const width = time.time / time.max*  100;
-
    const showWidth=Math.round(width);
-   console.log(width)
    let style = {
       width: `${width}%`
    }

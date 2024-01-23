@@ -1,5 +1,5 @@
 export const Style = {
-   paddingX: "px-[12px]",
+   paddingX: "px-[20px]",
    maximum: "max-w-[450px]"
 }
 
