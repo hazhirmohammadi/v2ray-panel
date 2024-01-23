@@ -37,7 +37,7 @@ const UserCard = ({name, time, status}) => {
           </div>
           <div className=" text-xs">
              <Progress
-                 time={15}
+                 time={12}
                  max={30}
              />
 
