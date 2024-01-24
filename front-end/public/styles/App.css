@@ -77,3 +77,7 @@
 .arrow_1{
     transform: rotate(90deg);
 }
+
+.add-field{
+    @apply bg-[#202020] border-none outline-none shadow-sm py-3 pl-5 block w-full text-xs border-gray-300 rounded-[25px]
+}

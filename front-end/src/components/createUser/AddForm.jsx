@@ -5,6 +5,7 @@ import {userCard} from "../../utils/constants.js";
 import {array} from "yup";
 import axios from "axios";
 import toast from "../../utils/Toast.js";
+import Progress from "../../common/progress.jsx";
 
 
 //!  validation inputs form with Yup
@@ -66,56 +67,56 @@ const addForm = () => {
        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
           <Form>
              <div className="mb-2 mt-2 ">
-                <label htmlFor="name" className="block text-xs font-medium text-white ">
+                <label htmlFor="name" className="text-xs font-[poppin-extrsLight] mb-5 ">
                    Username
                 </label>
                 <Field
                     type="text"
                     id="name"
                     name="name"
-                    className="border-none outline-none shadow-sm py-1 px-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="add-field"
                 />
                 <ErrorMessage name="name" component="div" className="text-red-500 text-xs italic"/>
              </div>
              <div className="mb-4">
-                <label htmlFor="limit" className="block text-xs font-medium text-white">
+                <label htmlFor="limit" className="text-xs font-[poppin-extrsLight] mb-5">
                    limit IP
                 </label>
                 <Field
                     type="number"
                     id="limit"
                     name="limit"
-                    className="border-none outline-none  shadow-sm py-1 px-1 text-blue-600 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="add-field"
                 />
                 <ErrorMessage name="limit" component="div" className="text-red-500 text-xs italic"/>
              </div>
              <div className="mb-4">
-                <label htmlFor="flow  " className="block text-xs font-medium text-white">
+                <label htmlFor="flow  " className="text-xs font-[poppin-extrsLight] mb-5">
                    Flow
                 </label>
                 <Field
                     type="number"
                     id="flow"
                     name="flow"
-                    className="border-none outline-none  shadow-sm py-1 px-1 text-blue-600 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="add-field"
                 />
                 <ErrorMessage name="flow" component="div" className="text-red-500 text-xs italic"/>
              </div>
 
              <div className="mb-4">
-                <label htmlFor="time" className="block text-xs font-medium text-white">
+                <label htmlFor="time" className="text-xs font-[poppin-extrsLight] mb-5">
                    time
                 </label>
                 <Field
                     type="number"
                     id="time"
                     name="time"
-                    className="border-none outline-none  shadow-sm py-1 px-1 text-blue-600 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="add-field"
                 />
                 <ErrorMessage name="time" component="div" className="text-red-500 text-xs italic"/>
              </div>
              <div className=" flex flex-col justify-start my-2 ">
-                <label htmlFor="inBound" className="mb-1 text-xs font-medium text-white ">
+                <label htmlFor="inBound" className="text-xs font-[poppin-extrsLight] mb-5">
                    inBound
                 </label>
                 <Field
@@ -125,13 +126,14 @@ const addForm = () => {
 
                        setOptionBounds((prevOptionBounds) => [...prevOptionBounds, newItem]);
                     }}
-                    className="px-1 py-1 rounded-lg "
+                    className="add-field "
                     id="inBound"
                     name="inBound"
                     as="select"
                 >
                    {userCard.map((item, index) => (
                        <option
+                           className=""
                            key={index}
                            value={item.name}
                        >
@@ -159,8 +161,19 @@ const addForm = () => {
                     </button>
                 ))}
              </div>
-             <button onClick={addUser} type="submit" className="bg-indigo-500 text-white py-1 px-1 rounded-md">
-                Submit
+           <div className="mb-5">
+              <div className="mt-2">
+                 <span  className="text-xs font-[poppin-extrsLight] mb-5">
+                    Progress
+                 </span>
+              </div>
+              <Progress
+                  time={0}
+                  max={30}
+              />
+           </div>
+             <button onClick={addUser} type="submit" className="my-4  bg-[#0AC9BD] rounded-[15px] py-3 px-5 w-full text-center">
+                Add User
              </button>
 
           </Form>
