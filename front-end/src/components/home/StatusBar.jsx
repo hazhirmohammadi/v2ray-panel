@@ -1,4 +1,4 @@
-import useModalStore from "../Store.js";
+import useModalStore from "../../stores/Store.js";
 const StatusBar = ({status}) => {
 
    const {openModal, fetchView, modalType} = useModalStore();

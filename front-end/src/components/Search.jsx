@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Style} from "../Style.js";
+import {Style} from "../../public/styles/Style.js";
 import {Avatar} from "./index.js";
 import {back, search} from "../../public/assets/icons/index.js";
 import {Field} from "formik";

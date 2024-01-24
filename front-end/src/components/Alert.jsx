@@ -1,5 +1,5 @@
 import React from 'react';
-import {Style} from "../Style.js";
+import {Style} from "../../public/styles/Style.js";
 import Progress from "../common/progress.jsx";
 import {Link} from "react-router-dom";
 import {back} from "../../public/assets/icons/index.js";
@@ -8,11 +8,11 @@ const Alert = () => {
    return (
        <div className={`${Style.paddingX} ${Style.maximum} pt-4`}>
           <div className="w-full mb-5">
+             <Link to="/" title="back to home">
              <div className="bg-[#262626] rounded-full p-[10px] w-fit">
-                <Link to="/" title="back to home">
                    <img className="size-[15px]" src={back} alt="search"/>
-                </Link>
              </div>
+             </Link>
           </div>
           <div>
              <div className="mb-5">

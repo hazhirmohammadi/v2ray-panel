@@ -1,10 +1,10 @@
 import AddForm from "./AddForm.jsx";
-import Header from "./Header.jsx";
+import Header from "./home/Header.jsx";
 import Login from "./Login.jsx";
 import UserCard from "./UserCard.jsx";
-import StatusBar from "./StatusBar.jsx";
+import StatusBar from "./home/StatusBar.jsx";
 import Search from "./Search.jsx";
-import Avatar from "./Avatar.jsx";
+import Avatar from "../common/Avatar.jsx";
 import Alert from "./Alert.jsx";
 
 export {
