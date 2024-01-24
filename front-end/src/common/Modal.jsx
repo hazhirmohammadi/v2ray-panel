@@ -1,5 +1,5 @@
 import React from 'react';
-import useModalStore from "../Store.js";
+import useModalStore from "../stores/Store.js";
 
 
 const Modal = ({ isOpen, onClose, children }) => {

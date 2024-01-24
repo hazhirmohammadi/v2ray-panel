@@ -1,7 +1,7 @@
 import create from "zustand";
 import axios from "axios";
 import {devtools} from "zustand/middleware";
-import Toast from "./utils/Toast.js";
+import Toast from "../utils/Toast.js";
 import {toast} from "react-toastify";
 
 const useLoginStore = create(devtools((set) => ({

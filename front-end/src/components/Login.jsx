@@ -1,7 +1,7 @@
 import React from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-import useLoginStore from "../LoginStore.js";
+import useLoginStore from "../stores/LoginStore.js";
 import Loading from "../common/Loading.jsx";
 
 const validationSchema = Yup.object().shape({

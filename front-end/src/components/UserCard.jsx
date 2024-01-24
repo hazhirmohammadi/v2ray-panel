@@ -40,8 +40,8 @@ const UserCard = ({name, time, status}) => {
              </div>
              <div className=" text-xs">
                 <Progress
-                    time={12}
-                    max={30}
+                    time={55}
+                    max={60}
                 />
              </div>
              <div className="flex flex-row items-center justify-between ">
