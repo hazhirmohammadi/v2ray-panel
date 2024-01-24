@@ -11,6 +11,8 @@ import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {useEffect, useMemo, useState} from "react";
 import userStore from "./stores/UserStore.js";
+import CreateUser from "./components/createUser/CreateUser.jsx";
+import {Link} from "react-router-dom";
 
 
 function App() {
@@ -33,20 +35,11 @@ function App() {
    return (
        <>
           {isLoggedIn ? <main className={` ${Style.maximum} pt-4  relative  h-screen `}>
-
-                 <ToastContainer
-                     style={{
-                        borderRadius: "15% ",
-                        paddingLeft: "55px",
-                        paddingTop: "20px",
-                        marginLeft: "auto",
-                        marginRight: "auto"
-                     }}
-                 />
+                 {/*Header*/}
                  <div className="flex flex-col ">
                     <Header/>
                  </div>
-
+                 {/*Modal*/}
                  <div className={`${Style.paddingX}`}>
                     <div>
                        <Modal isOpen={isOpen} onClose={closeModal}>
@@ -57,9 +50,11 @@ function App() {
                        </Modal>
                     </div>
                  </div>
+                 {/*Map users*/}
                  <div className={`${Style.paddingX} flex flex-col gap-2 `}>
                     {userMemo}
                  </div>
+
               </main>
               :
               <div className={`${Style.paddingX} ${Style.maximum} pt-4 h-screen`}>

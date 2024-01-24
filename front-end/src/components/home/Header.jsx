@@ -47,11 +47,36 @@ const Header = () => {
           {/*Status Bar*/}
           <div className=" flex flex-col justify-end mb-5 ">
              <div className={`w-full ${Style.paddingX}`}>
-                <div className={'bg-[#262626] py-1 px-2  rounded-full  w-fit'}>
+                <div className={' py-1 px-2  rounded-full  w-fit'}>
                    <span className="text-sm">Status </span>
                 </div>
              </div>
-             <StatusBar/>
+             <div className="grid grid-cols-12 mt-[5px]">
+                <div className="z-20 flex flex-col items-center justify-center col-span-2 pl-[2px] w-full h-full">
+                   <div className="grid grid-rows-2  pr-1 w-full h-full gap-y-2">
+
+                      <div className="row-span-1 bg-[#262626] rounded-[15px] p-[4px] flex justify-center items-center">
+                         <Link to="/create_user">
+                            <div className="relative text-xs">
+                               Add
+                            </div>
+                         </Link>
+                      </div>
+
+                      <div className="row-span-1 bg-[#262626] rounded-[15px] p-[4px] flex justify-center items-center">
+                         <Link to="">
+                            <div className="text-xs">
+                               <span className="text-red-500">Del</span>
+                            </div>
+                         </Link>
+                      </div>
+                   </div>
+                </div>
+
+                <div className="z-10 col-span-10">
+                   <StatusBar/>
+                </div>
+             </div>
           </div>
        </div>
    );
