@@ -1,10 +1,10 @@
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from "yup";
 import React, {useEffect, useState} from "react";
-import {userCard} from "../utils/constants.js";
+import {userCard} from "../../utils/constants.js";
 import {array} from "yup";
 import axios from "axios";
-import toast from "../utils/Toast.js";
+import toast from "../../utils/Toast.js";
 
 
 //!  validation inputs form with Yup

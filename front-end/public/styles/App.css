@@ -74,3 +74,6 @@
 .primary-box{
     @apply py-[15px] px-5 bg-[#202020] ;
 }
+.arrow_1{
+    transform: rotate(90deg);
+}
