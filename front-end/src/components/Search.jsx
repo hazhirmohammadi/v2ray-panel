@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Style} from "../../public/styles/Style.js";
+import {Style} from "../Style.js";
 import {Avatar} from "./index.js";
 import {back, search} from "../../public/assets/icons/index.js";
 import {Field} from "formik";
@@ -20,7 +20,7 @@ const Search = () => {
           </div>
           {/*LABEL PAGE*/}
           <div className={`mb-5 ${Style.paddingX}`}>
-             <span>Search</span>
+             <span>Search your <br/> users config</span>
           </div>
           {/*INPUT SEARCH*/}
           <div className={` flex flex-row gap-x-[10px]  ${Style.paddingX} mb-5`}>
@@ -96,13 +96,13 @@ const Search = () => {
                    </div>
                 </div>
 
-                <div className="relative">
-                   <button className=" flex flex-col gap-y-[3px] cursor-pointer w-[15px]">
-                      <div className="rounded-full bg-white w-[4px] h-[4px]"></div>
-                      <div className="rounded-full bg-white w-[4px] h-[4px]"></div>
-                      <div className="rounded-full bg-white w-[4px] h-[4px]"></div>
-                   </button>
-                </div>
+                {/*<div className="relative">*/}
+                {/*   <button className=" flex flex-col gap-y-[3px] cursor-pointer w-[15px]">*/}
+                {/*      <div className="rounded-full bg-white w-[4px] h-[4px]"></div>*/}
+                {/*      <div className="rounded-full bg-white w-[4px] h-[4px]"></div>*/}
+                {/*      <div className="rounded-full bg-white w-[4px] h-[4px]"></div>*/}
+                {/*   </button>*/}
+                {/*</div>*/}
              </div>
           </div>
        </div>

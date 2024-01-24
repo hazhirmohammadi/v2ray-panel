@@ -2,7 +2,7 @@
 import {useState} from 'react';
 import {Avatar, StatusBar} from "../index.js"
 import useModalStore from "../../stores/Store.js";
-import {Style} from "../../../public/styles/Style.js";
+import {Style} from "../../Style.js";
 import {Link} from "react-router-dom";
 import {search, union} from "../../../public/assets/icons/index.js";
 

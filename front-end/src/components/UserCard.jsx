@@ -27,6 +27,9 @@ const UserCard = ({name, time, status}) => {
 
    return (
        <div className=" rounded-[20px] primary-box flex flex-row justify-between relative">
+          <div className="w-[2px] bg-gray-500   mr-2">
+
+          </div>
           <div className="w-full mr-7">
              <div className="text-xs flex  flex-row justify-between">
                 <div className="flex  flex-row">

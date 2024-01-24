@@ -1,5 +1,5 @@
 import React from 'react';
-import {Style} from "../../public/styles/Style.js";
+import {Style} from "../Style.js";
 import Progress from "../common/progress.jsx";
 import {Link} from "react-router-dom";
 import {back} from "../../public/assets/icons/index.js";

@@ -17,6 +17,7 @@ const validationSchema = Yup.object().shape({
 });
 const addForm = () => {
    // ? State inbounds ⤵
+   const [progress, setProgress] = useState(0);
    const [optionBounds, setOptionBounds] = useState([]);
    const [config, setConfig] = useState();
 
@@ -41,13 +42,13 @@ const addForm = () => {
          flow: values.flow,
          time: values.time,
          id: {
-            inb:[""]
+            inb: [""]
          }
       });
 
 
-      if (res.status===200){
-      }else {
+      if (res.status === 200) {
+      } else {
       }
       console.log(res)
    };
@@ -59,8 +60,29 @@ const addForm = () => {
       );
    }
 
+   useEffect(() => {
+      console.log(progress);
+   }, [setProgress]);
    const addUser = async () => {
+   }
 
+   switch (initialValues) {
+      case initialValues.name:
+         console.log(11)
+         setProgress(20)
+         break
+      case initialValues.time:
+         setProgress(20);
+         break
+      case initialValues.flow:
+         setProgress(20);
+         break
+      case initialValues.limit:
+         setProgress(20)
+         break
+      case initialValues.id:
+         setProgress(20)
+         break
    }
 
    return (
@@ -161,18 +183,19 @@ const addForm = () => {
                     </button>
                 ))}
              </div>
-           <div className="mb-5">
-              <div className="mt-2">
-                 <span  className="text-xs font-[poppin-extrsLight] mb-5">
+             <div className="mb-5">
+                <div className="mt-2">
+                 <span className="text-xs font-[poppin-extrsLight] mb-5">
                     Progress
                  </span>
-              </div>
-              <Progress
-                  time={0}
-                  max={30}
-              />
-           </div>
-             <button onClick={addUser} type="submit" className="my-4  bg-[#0AC9BD] rounded-[15px] py-3 px-5 w-full text-center">
+                </div>
+                <Progress
+                    time={0}
+                    max={100}
+                />
+             </div>
+             <button onClick={addUser} type="submit"
+                     className="my-4  bg-[#0AC9BD] rounded-[15px] py-3 px-5 w-full text-center">
                 Add User
              </button>
 
