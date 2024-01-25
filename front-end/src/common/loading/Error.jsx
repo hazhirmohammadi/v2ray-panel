@@ -7,7 +7,7 @@ const Error = () => {
              <div className="w-[20px] h-[20px] rounded-full border border-red-500 ">
                 <div className="relative w-full h-full rounded-full flex justify-center items-center">
                    <div className="-rotate-45 w-[1px] h-[12px] bg-red-600"></div>
-                   <div className=" rotate-45 w-[1px] h-[12px] bg-red-6001 "></div>
+                   <div className=" rotate-45 w-[1px] h-[12px] bg-red-600 "></div>
                 </div>
              </div>
           </div>

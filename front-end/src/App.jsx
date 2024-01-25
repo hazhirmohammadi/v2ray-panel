@@ -36,7 +36,7 @@ function App() {
                  {/*Header*/}
                  <div className="flex flex-col ">
                     <Loading
-                        status="error"
+                        status="Padding"
                     />
                     <Header/>
                  </div>
