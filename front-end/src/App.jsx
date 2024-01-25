@@ -28,7 +28,7 @@ function App() {
           />
       ))
    }, [userCard]);
-//error success
+//error success padding
 
    return (
        <>
