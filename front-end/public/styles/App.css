@@ -11,7 +11,7 @@
 }
 
 .modal-content {
-    height: 500px   ;
+    height: 500px;
     @apply bg-gray-700;
     overflow-y: scroll;
     padding: 20px;
@@ -48,36 +48,57 @@
 .primary-btn {
     @apply p-1 rounded-lg font-light text-xs;
 }
-.bg-blur-custom{
+
+.bg-blur-custom {
     background-image: url("/front-end/public/assets/images/vector.png");
     @apply blur-2xl ;
 }
-.container-x{
+
+.container-x {
     display: flex;
     gap: 20px;
     width: 300px;
     overflow-x: auto;
-    scroll-snap-type:x mandatory;
-    scrollbar-width:none;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 }
-.slide{
+
+.slide {
     flex: 0 0 200px;
     height: 200px;
     scroll-snap-stop: always;
     scroll-snap-align: start;
 }
-.slide-filter{
+
+.slide-filter {
 
     scroll-snap-stop: always;
     scroll-snap-align: start;
 }
-.primary-box{
+
+.primary-box {
     @apply py-[15px] px-5 bg-[#202020] ;
 }
-.arrow_1{
+
+.arrow_1 {
     transform: rotate(90deg);
 }
 
-.add-field{
+.add-field {
     @apply bg-[#202020] border-none outline-none shadow-sm py-3 pl-5 block w-full text-xs border-gray-300 rounded-[25px]
+}
+
+.loading-animate {
+    animation: loading 1s;
+}
+
+@keyframes loading {
+    0% {
+        scale: 0.4;
+        transform: translateY(-100px);
+    }
+    100%{
+        scale: 1;
+        transform: translateY(0px);
+    }
 }

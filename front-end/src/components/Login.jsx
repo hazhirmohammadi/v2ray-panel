@@ -2,7 +2,7 @@ import React from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import useLoginStore from "../stores/LoginStore.js";
-import Loading from "../common/Loading.jsx";
+import Index from "../common/loading/index.jsx";
 
 const validationSchema = Yup.object().shape({
    username: Yup.string().required('Username is required'),
@@ -67,7 +67,7 @@ const Login = () => {
                        className="bg-[#0AC9BD] hover:bg-[#0AC7BD] rounded-[15px] text-sm  text-white w-full  py-3 px-5  focus:outline-none focus:shadow-outline"
                        type="submit"
                    >
-                    {/*<Loading/>*/}
+                    {/*<Index/>*/}
                       Login
                    </button>
                 </div>

@@ -51,9 +51,8 @@ const UserCard = ({name, time, status}) => {
                 <div className=" mr-2">
                    <span className="text-xs">dfgevrtvwigewe744erfger</span>
                 </div>
-                <div className="relative cursor-pointer">
-                   <div
-                       className="absolute top-1 left-1 w-[15px] h-[15px] rounded border-gray-50 border bg-gray-400"></div>
+                <div onClick={()=>{ navigator.clipboard.writeText("")}} className="relative cursor-pointer ">
+                   <div className="absolute top-1 left-1 w-[15px] h-[15px] rounded border-gray-50 border bg-gray-400"></div>
                    <div className=" w-[15px] h-[15px] rounded border-gray-50 border"></div>
                 </div>
              </div>
