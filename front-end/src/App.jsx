@@ -10,6 +10,7 @@ import useLoginStore from "./stores/LoginStore.js";
 import 'react-toastify/dist/ReactToastify.css';
 import {useMemo} from "react";
 import userStore from "./stores/UserStore.js";
+import Loading from "./common/loading/index.jsx";
 
 
 function App() {
@@ -27,13 +28,16 @@ function App() {
           />
       ))
    }, [userCard]);
-
+//error success
 
    return (
        <>
           {isLoggedIn ? <main className={` ${Style.maximum} pt-4 relative  h-screen `}>
                  {/*Header*/}
                  <div className="flex flex-col ">
+                    <Loading
+                        status="error"
+                    />
                     <Header/>
                  </div>
                  {/*Modal*/}
