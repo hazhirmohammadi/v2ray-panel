@@ -1,6 +1,6 @@
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from "yup";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {userCard} from "../../utils/constants.js";
 import axios from "axios";
 import Progress from "../../common/progress.jsx";

@@ -1,8 +1,6 @@
-import React from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import useLoginStore from "../stores/LoginStore.js";
-import Index from "../common/loading/index.jsx";
 
 const validationSchema = Yup.object().shape({
    username: Yup.string().required('Username is required'),

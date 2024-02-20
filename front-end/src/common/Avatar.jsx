@@ -1,6 +1,4 @@
 import {avatar_2} from "../../public/assets/images/index.js";
-import {Link} from "react-router-dom";
-import {search, union} from "../../public/assets/icons/index.js";
 
 const Avatar = () => {
    return (

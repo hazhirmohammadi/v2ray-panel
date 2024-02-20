@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Progress from "../common/progress.jsx";
-import {date} from "yup";
 
 const UserCard = ({name, time, status}) => {
    const [down, setDown] = useState(false);
