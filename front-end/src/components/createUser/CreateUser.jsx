@@ -1,4 +1,3 @@
-import React from 'react';
 import {Style} from "../../Style.js";
 import {Link} from "react-router-dom";
 import {back} from "../../../public/assets/icons/index.js";
